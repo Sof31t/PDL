@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="4" hostname="Abyx" name="msgtypeid.MsgTypeIdentifierWSTest" tests="4" time="0.152" timestamp="2013-12-11T14:12:26">
+  <properties>
+    <property name="libs.jsp-compiler.javadoc" value="" />
+    <property name="netbeans.autoupdate.country" value="US" />
+    <property name="libs.Encoder-HL7.javadoc" value="" />
+    <property name="nb.wait.for.caches" value="true" />
+    <property name="javac.test.classpath" value=":build/web/WEB-INF/classes:/home/abyx/openesb-2.3/netbeans/java/modules/ext/junit-4.10.jar" />
+    <property name="libs.jsf20.maven-pom" value="" />
+    <property name="j2ee.copy.static.files.on.save" value="true" />
+    <property name="source.root" value="src" />
+    <property name="do.display.browser" value="true" />
+    <property name="libs.junit.javadoc" value="/home/abyx/openesb-2.3/netbeans/java/docs/junit-3.8.2-api.zip" />
+    <property name="ant.core.lib" value="/home/abyx/openesb-2.3/netbeans/java/ant/lib/ant.jar" />
+    <property name="javadoc.windowtitle" value="" />
+    <property name="libs.jsp-compilation.javadoc" value="" />
+    <property name="user.dir" value="/home/abyx/INSA/stdu/MsgTypeIdentifier" />
+    <property name="libs.hibernate-persistence.javadoc" value="" />
+    <property name="java.vm.version" value="23.25-b01" />
+    <property name="libs.jstl11.maven-pom" value="" />
+    <property name="libs.MySQLDriver.classpath" value="/home/abyx/openesb-2.3/netbeans/ide/modules/ext/mysql-connector-java-5.1.18-bin.jar" />
+    <property name="no.dependencies" value="false" />
+    <property name="libs.eclipselinkmodelgen.src" value="" />
+    <property name="libs.jstl11.src" value="" />
+    <property name="javadoc.notree" value="false" />
+    <property name="lib.dir" value="web/WEB-INF/lib" />
+    <property name="netbeans.autoupdate.version" value="1.23" />
+    <property name="libs.javaee-web-api-6.0.classpath" value="/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/javaee-web-api-6.0.jar" />
+    <property name="libs.hibernate-support.maven-pom" value="" />
+    <property name="libs.hibernate-support.javadoc" value="" />
+    <property name="jdk.home" value="/opt/jdk1.7.0_25" />
+    <property name="libs.javac-api.src" value="" />
+    <property name="javadoc.noindex" value="false" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="do.tmp.war.package" value="true" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="libs.Encoder-Custom.javadoc" value="" />
+    <property name="nb.show.statistics.ui" value="usageStatisticsEnabled" />
+    <property name="netbeans.autoupdate.variant" value="" />
+    <property name="have.tests" value="true" />
+    <property name="org.xml.sax.driver" value="com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser" />
+    <property name="j2ee.server.instance" value="[/home/abyx/openesb-2.3/glassfish]deployer:Sun:AppServer::localhost:4848" />
+    <property name="netbeans.derby.system.home" value="/home/abyx/openesb-2.3/glassfish/databases" />
+    <property name="libs.javac-api.javadoc" value="" />
+    <property name="os.name" value="Linux" />
+    <property name="libs.beans-binding.classpath" value="/home/abyx/openesb-2.3/netbeans/java/modules/ext/beansbinding-1.2.1.jar" />
+    <property name="org.whattf.datatype.lang-registry" value="jar:file:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/validator.jar!/nu/validator/localentities/files/www_iana_org_assignments_language_subtag_registry" />
+    <property name="libs.restapi.javadoc" value="/home/abyx/openesb-2.3/netbeans/enterprise/docs/jsr311-api-1.1.1-javadoc.zip" />
+    <property name="libs.JWSAntTasks.maven-pom" value="" />
+    <property name="libs.testng.src" value="" />
+    <property name="nu.validator.spec.alt-advice" value="jar:file:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/validator.jar!/nu/validator/localentities/files/wiki_whatwg_org_wiki_Validator_nu_alt_advice" />
+    <property name="libs.spring-webmvc3.0.src" value="" />
+    <property name="libs.restapi.classpath" value="/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jsr311-api-1.1.1.jar" />
+    <property name="runmain.jvmargs" value="" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="libs.jaxb.maven-pom" value="" />
+    <property name="os.arch" value="amd64" />
+    <property name="libs.Encoder-Custom.classpath" value="/home/abyx/openesb-2.3/netbeans/soa/modules/ext/custom.jar:/home/abyx/openesb-2.3/netbeans/soa/modules/ext/customencoder-xsdextension.jar" />
+    <property name="libs.eclipselink.src" value="" />
+    <property name="user.name" value="abyx" />
+    <property name="j2ee.compile.on.save" value="true" />
+    <property name="libs.jsf12.javadoc" value="/home/abyx/openesb-2.3/netbeans/enterprise/docs/javaee6-doc-api.zip" />
+    <property name="libs.spring-webmvc3.0.maven-pom" value="" />
+    <property name="libs.swing-layout.maven-pom" value="" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner msgtypeid.MsgTypeIdentifierWSTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/abyx/INSA/stdu/MsgTypeIdentifier/build/test/results/TEST-msgtypeid.MsgTypeIdentifierWSTest.xml crashfile=/home/abyx/INSA/stdu/MsgTypeIdentifier/build/junitvmwatcher8811731174512646754.properties propsfile=/home/abyx/INSA/stdu/MsgTypeIdentifier/build/junit4073148593942066818.properties" />
+    <property name="build.classes.dir" value="build/web/WEB-INF/classes" />
+    <property name="libs.jaxws21.javadoc" value="/home/abyx/openesb-2.3/netbeans/java/docs/jaxws-api-doc.zip" />
+    <property name="build.web.excludes" value="**/*.java,**/*.form" />
+    <property name="includes" value="**" />
+    <property name="j2ee.platform.wsimport.classpath" value="/home/abyx/openesb-2.3/glassfish/lib/webservices-tools.jar:/home/abyx/openesb-2.3/glassfish/lib/webservices-rt.jar:/home/abyx/openesb-2.3/glassfish/lib/tools.jar:/home/abyx/openesb-2.3/glassfish/lib/appserv-jstl.jar:/home/abyx/openesb-2.3/glassfish/lib/javaee.jar:/home/abyx/openesb-2.3/glassfish/lib/appserv-ws.jar:/home/abyx/openesb-2.3/glassfish/lib/mail.jar:/home/abyx/openesb-2.3/glassfish/lib/activation.jar" />
+    <property name="user.country" value="US" />
+    <property name="libs.jstl11.javadoc" value="/home/abyx/openesb-2.3/netbeans/enterprise/docs/javaee6-doc-api.zip" />
+    <property name="javadoc.encoding" value="UTF-8" />
+    <property name="javac.classpath" value="" />
+    <property name="libs.jsp-compilation-syscp.src" value="" />
+    <property name="libs.JAVADB_DRIVER_LABEL.src" value="" />
+    <property name="do.debug.server" value="true" />
+    <property name="debug-transport" value="dt_socket" />
+    <property name="netbeans.system_http_non_proxy_hosts" value="" />
+    <property name="netbeans.home" value="/home/abyx/openesb-2.3/netbeans/platform" />
+    <property name="build.compiler.emacs" value="true" />
+    <property name="libs.javaee-web-api-6.0.src" value="" />
+    <property name="libs.ejb3-persistence.src" value="" />
+    <property name="libs.jsp-compilation-syscp.classpath" value="/home/abyx/openesb-2.3/netbeans/java/ant/lib/ant.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/servlet3.0-jsp2.2-api.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/glassfish-jspparser-3.0.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/standard.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/jsf-2_1/jsf-impl.jar" />
+    <property name="java.endorsed.dirs" value="/opt/jdk1.7.0_25/jre/lib/endorsed" />
+    <property name="netbeans.dynamic.classpath" value="/home/abyx/openesb-2.3/netbeans/platform/core/org-openide-filesystems.jar:/home/abyx/openesb-2.3/netbeans/platform/core/core.jar:/home/abyx/openesb-2.3/netbeans/platform/core/locale/core_zh_CN.jar:/home/abyx/openesb-2.3/netbeans/platform/core/locale/core_pt_BR.jar:/home/abyx/openesb-2.3/netbeans/platform/core/locale/org-openide-filesystems_ru.jar:/home/abyx/openesb-2.3/netbeans/platform/core/locale/core_ru.jar:/home/abyx/openesb-2.3/netbeans/platform/core/locale/org-openide-filesystems_ja.jar:/home/abyx/openesb-2.3/netbeans/platform/core/locale/org-openide-filesystems_pt_BR.jar:/home/abyx/openesb-2.3/netbeans/platform/core/locale/core_ja.jar:/home/abyx/openesb-2.3/netbeans/platform/core/locale/org-openide-filesystems_zh_CN.jar:/home/abyx/openesb-2.3/netbeans/bin/../soa/core/locale/core_soa.jar:/home/abyx/openesb-2.3/netbeans/bin/../nb/core/org-netbeans-upgrader.jar:/home/abyx/openesb-2.3/netbeans/bin/../nb/core/locale/core_nb_pt_BR.jar:/home/abyx/openesb-2.3/netbeans/bin/../nb/core/locale/org-netbeans-upgrader_zh_CN.jar:/home/abyx/openesb-2.3/netbeans/bin/../nb/core/locale/core_nb_ru.jar:/home/abyx/openesb-2.3/netbeans/bin/../nb/core/locale/core_nb_zh_CN.jar:/home/abyx/openesb-2.3/netbeans/bin/../nb/core/locale/core_nb.jar:/home/abyx/openesb-2.3/netbeans/bin/../nb/core/locale/org-netbeans-upgrader_pt_BR.jar:/home/abyx/openesb-2.3/netbeans/bin/../nb/core/locale/core_nb_ja.jar:/home/abyx/openesb-2.3/netbeans/bin/../nb/core/locale/org-netbeans-upgrader_ja.jar:/home/abyx/openesb-2.3/netbeans/bin/../nb/core/locale/org-netbeans-upgrader_ru.jar" />
+    <property name="java.vm.specification.version" value="1.7" />
+    <property name="libs.primefaces.classpath" value="/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/primefaces/primefaces-3.2.jar" />
+    <property name="libs.javaee-api-6.0.classpath" value="/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/javaee-api-6.0.jar" />
+    <property name="netbeans.productversion" value="OpenESB IDE 2.3" />
+    <property name="libs.hibernate-persistence.classpath" value="/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/antlr-2.7.6.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/asm.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/asm-attrs.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/cglib-2.1.3.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/commons-collections-2.1.1.jar:/home/abyx/openesb-2.3/netbeans/ide/modules/org-apache-commons-logging.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/dom4j-1.6.1.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/ehcache-1.2.3.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/jdbc2_0-stdext.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/jta.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/hibernate3.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/hibernate-tools.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/hibernate-annotations.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/hibernate-commons-annotations.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/hibernate-entitymanager.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/javassist.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/ejb3-persistence.jar" />
+    <property name="libs.jaxws21.src" value="" />
+    <property name="do.war.package.with.custom.manifest" value="true" />
+    <property name="netbeans.autoupdate.language" value="en" />
+    <property name="org.netbeans.core.startup.specialResource" value="nullcom.sun.jdo.api.persistence.mapping.ejb" />
+    <property name="libs.Encoder-Framework.javadoc" value="" />
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="libs.javaee-api-6.0.javadoc" value="/home/abyx/openesb-2.3/netbeans/enterprise/docs/javaee6-doc-api.zip" />
+    <property name="sun.font.fontmanager" value="sun.awt.X11FontManager" />
+    <property name="javac.debug" value="true" />
+    <property name="javadoc.splitindex" value="true" />
+    <property name="file.separator" value="/" />
+    <property name="libs.junit_4.maven-pom" value="" />
+    <property name="resource.dir" value="setup" />
+    <property name="javac.test.processorpath" value=":build/web/WEB-INF/classes:/home/abyx/openesb-2.3/netbeans/java/modules/ext/junit-4.10.jar" />
+    <property name="netbeans.buildnumber" value="201210100934" />
+    <property name="libs.JWSAntTasks.javadoc" value="" />
+    <property name="build.generated.sources.dir" value="build/generated-sources" />
+    <property name="libs.eclipselinkmodelgen.classpath" value="/home/abyx/openesb-2.3/netbeans/java/modules/ext/eclipselink/org.eclipse.persistence.jpa.modelgen.processor-2.3.2.jar" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="libs.junit.classpath" value="/home/abyx/openesb-2.3/netbeans/java/modules/ext/junit-3.8.2.jar" />
+    <property name="libs.jaxb.javadoc" value="/home/abyx/openesb-2.3/netbeans/ide/docs/jaxb-api-doc.zip" />
+    <property name="libs.struts.classpath" value="/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/antlr-2.7.2.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/bsf-2.3.0.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/commons-beanutils-1.8.0.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/commons-chain-1.2.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/commons-digester-1.8.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/commons-fileupload-1.1.1.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/commons-io-1.1.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/commons-logging-1.0.4.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/commons-validator-1.3.1.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/jstl-1.0.2.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/oro-2.0.8.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/standard-1.0.6.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/struts-core-1.3.10.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/struts-el-1.3.10.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/struts-extras-1.3.10.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/struts-faces-1.3.10.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/struts-mailreader-dao-1.3.10.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/struts-scripting-1.3.10.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/struts-taglib-1.3.10.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/struts/struts-tiles-1.3.10.jar" />
+    <property name="application.args.param" value="" />
+    <property name="ant.home" value="/home/abyx/openesb-2.3/netbeans/java/ant" />
+    <property name="libs.junit_4.src" value="/home/abyx/openesb-2.3/netbeans/java/docs/junit-4.10-sources.jar" />
+    <property name="libs.testng.classpath" value="/home/abyx/openesb-2.3/netbeans/platform/modules/ext/testng-6.5.1-dist.jar" />
+    <property name="conf.dir" value="src/conf" />
+    <property name="webinf.dir" value="web/WEB-INF" />
+    <property name="libs.absolutelayout.maven-pom" value="" />
+    <property name="ant.java.version" value="1.7" />
+    <property name="java.library.path" value="/opt/jdk1.7.0_25/jre/lib/amd64:/opt/jdk1.7.0_25/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib" />
+    <property name="javadoc.author" value="false" />
+    <property name="libs.metro.maven-pom" value="" />
+    <property name="libs.Encoder-HL7.classpath" value="/home/abyx/openesb-2.3/netbeans/soa/modules/ext/hl7.jar:/home/abyx/openesb-2.3/netbeans/soa/modules/ext/hl7encoder-xsdextension.jar" />
+    <property name="java.util.logging.config.class" value="org.netbeans.core.startup.TopLogging" />
+    <property name="libs.PostgreSQLDriver.src" value="" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="basedir" value="/home/abyx/INSA/stdu/MsgTypeIdentifier" />
+    <property name="libs.jpa20-persistence.maven-pom" value="" />
+    <property name="jar.compress" value="false" />
+    <property name="libs.jstl11.classpath" value="/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/standard.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/jstl.jar" />
+    <property name="path.separator" value=":" />
+    <property name="dist.war" value="dist/MsgTypeIdentifier.war" />
+    <property name="libs.javaee-web-api-6.0.javadoc" value="/home/abyx/openesb-2.3/netbeans/enterprise/docs/javaee6-doc-api.zip" />
+    <property name="ant.junit.enabletestlistenerevents" value="true" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="libs.jaxws21.classpath" value="/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/jaxb-impl.jar:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/jaxb-xjc.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/FastInfoset.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/gmbal-api-only.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/ha-api.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/javax.mail_1.4.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/jaxws-rt.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/jaxws-tools.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/management-api.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/mimepull.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/policy.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/saaj-impl.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/stax-ex.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/stax2-api.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/streambuffer.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/woodstox-core-asl.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/api/jaxws-api.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/api/jsr181-api.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/api/javax.annotation.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/jaxws22/api/saaj-api.jar:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/activation.jar:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/api/jaxb-api.jar:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/api/jsr173_1.0_api.jar" />
+    <property name="libs.struts.src" value="" />
+    <property name="user.language" value="en" />
+    <property name="libs.Encoder-Framework.src" value="" />
+    <property name="ant.file.MsgTypeIdentifier-impl" value="/home/abyx/INSA/stdu/MsgTypeIdentifier/nbproject/build-impl.xml" />
+    <property name="j2ee.platform.classpath" value="/home/abyx/openesb-2.3/glassfish/lib/endorsed/webservices-api.jar:/home/abyx/openesb-2.3/glassfish/lib/javaee.jar:/home/abyx/openesb-2.3/glassfish/lib/jsf-impl.jar:/home/abyx/openesb-2.3/glassfish/lib/activation.jar:/home/abyx/openesb-2.3/glassfish/lib/appserv-tags.jar:/home/abyx/openesb-2.3/glassfish/lib/mail.jar:/home/abyx/openesb-2.3/glassfish/lib/appserv-jstl.jar:/home/abyx/openesb-2.3/glassfish/lib/webservices-tools.jar:/home/abyx/openesb-2.3/glassfish/lib/webservices-rt.jar:/home/abyx/openesb-2.3/glassfish/lib/webservices-tools.jar:/home/abyx/openesb-2.3/glassfish/lib/webservices-rt.jar:/home/abyx/openesb-2.3/glassfish/lib/appserv-ws.jar:/home/abyx/openesb-2.3/glassfish/lib/asm-3.1.jar:/home/abyx/openesb-2.3/glassfish/lib/jersey-bundle-1.0.3.1.jar:/home/abyx/openesb-2.3/glassfish/lib/jettison-1.0.1.jar:/home/abyx/openesb-2.3/glassfish/lib/jsr311-api-1.0.jar" />
+    <property name="testng.mode" value="testng" />
+    <property name="libs.JAXB-ENDORSED.maven-pom" value="" />
+    <property name="libs.spring-framework.classpath" value="/home/abyx/openesb-2.3/netbeans/ide/modules/org-apache-commons-logging.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/cglib-2.2.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring/spring-2.5.6.SEC03.jar" />
+    <property name="libs.eclipselink.maven-pom" value="" />
+    <property name="build.meta.inf.dir" value="build/web/META-INF" />
+    <property name="persistence.xml.dir" value="src/conf" />
+    <property name="org.whattf.datatype.charset-registry" value="jar:file:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/validator.jar!/nu/validator/localentities/files/www_iana_org_assignments_character_sets" />
+    <property name="libs.primefaces.javadoc" value="" />
+    <property name="libs.spring-framework300.maven-pom" value="" />
+    <property name="run.test.classpath" value=":build/web/WEB-INF/classes:/home/abyx/openesb-2.3/netbeans/java/modules/ext/junit-4.10.jar:build/test/classes" />
+    <property name="ant.project.invoked-targets" value="test" />
+    <property name="libs.Encoder-Framework.classpath" value="/home/abyx/openesb-2.3/netbeans/soa/modules/ext/encoderframework.jar:/home/abyx/openesb-2.3/netbeans/soa/modules/ext/encoderfrmwk-xsdextension.jar:/home/abyx/openesb-2.3/netbeans/soa/modules/ext/xbean.jar" />
+    <property name="libs.swing-layout.javadoc" value="/home/abyx/openesb-2.3/netbeans/platform/docs/swing-layout-1.0.4-doc.zip" />
+    <property name="sun.java2d.d3d" value="false" />
+    <property name="libs.ejb3-persistence.maven-pom" value="" />
+    <property name="jspc.schemas" value="/resources/schemas/" />
+    <property name="libs.PostgreSQLDriver.maven-pom" value="" />
+    <property name="java.class.version" value="51.0" />
+    <property name="libs.JAVADB_DRIVER_LABEL.classpath" value="/opt/jdk1.7.0_25/db/lib/derby.jar:/opt/jdk1.7.0_25/db/lib/derbyclient.jar:/opt/jdk1.7.0_25/db/lib/derbynet.jar" />
+    <property name="libs.javaee-endorsed-api-6.0.src" value="" />
+    <property name="netbeans.system_http_proxy" value="DIRECT" />
+    <property name="libs.eclipselink.javadoc" value="" />
+    <property name="libs.jsp-compilation.maven-pom" value="" />
+    <property name="user.properties.file" value="/home/abyx/openesb-2.3/.netbeans/openesb/build.properties" />
+    <property name="build.web.dir" value="build/web" />
+    <property name="libs.spring-framework.src" value="" />
+    <property name="libs.javac-api.maven-pom" value="" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="libs.JAXB-ENDORSED.javadoc" value="" />
+    <property name="libs.JWSAntTasks.classpath" value="/home/abyx/openesb-2.3/netbeans/java/ant/extra/org-netbeans-modules-javawebstart-anttasks.jar" />
+    <property name="libs.spring-framework300.src" value="" />
+    <property name="libs.PojoSELib.src" value="/home/abyx/openesb-2.3/netbeans/soa/modules/ext/sun-pojo-engine-api-src.jar" />
+    <property name="empty.dir" value="/home/abyx/INSA/stdu/MsgTypeIdentifier/build/empty" />
+    <property name="display.browser" value="true" />
+    <property name="version-output" value="java version &quot;1.7" />
+    <property name="javadoc.preview" value="true" />
+    <property name="libs.jpa20-persistence.javadoc" value="" />
+    <property name="java.home" value="/opt/jdk1.7.0_25/jre" />
+    <property name="libs.jsp-compilation.src" value="" />
+    <property name="libs.spring-webmvc.src" value="" />
+    <property name="debug.test.classpath" value=":build/web/WEB-INF/classes:/home/abyx/openesb-2.3/netbeans/java/modules/ext/junit-4.10.jar:build/test/classes" />
+    <property name="libs.javaee-endorsed-api-6.0.classpath" value="/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/javaee6-endorsed/javax.annotation.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/javaee6-endorsed/jaxb-api-osgi.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/javaee6-endorsed/webservices-api-osgi.jar" />
+    <property name="libs.javaee-api-6.0.src" value="" />
+    <property name="ant.project.default-target" value="default" />
+    <property name="annotation.processing.run.all.processors" value="true" />
+    <property name="libs.PostgreSQLDriver.javadoc" value="" />
+    <property name="libs.restlib.classpath" value="/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/asm-3.1.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jackson-core-asl-1.7.1.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jackson-jaxrs-1.7.1.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jackson-mapper-asl-1.7.1.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jackson-xc-1.7.1.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jersey-apache-client-1.8.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jersey-atom-abdera-1.8.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jersey-client-1.8.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jersey-core-1.8.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jersey-guice-1.8.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jersey-json-1.8.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jersey-multipart-1.8.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jersey-server-1.8.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jersey-simple-server-1.8.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jersey-spring-1.8.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/jettison-1.1.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/oauth-client-1.8.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/oauth-server-1.8.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/rest/oauth-signature-1.8.jar:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/activation.jar:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/api/jaxb-api.jar:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/api/jsr173_1.0_api.jar" />
+    <property name="libs.MySQLDriver.maven-pom" value="" />
+    <property name="j2ee.platform.wsgen.classpath" value="/home/abyx/openesb-2.3/glassfish/lib/webservices-tools.jar:/home/abyx/openesb-2.3/glassfish/lib/webservices-rt.jar:/home/abyx/openesb-2.3/glassfish/lib/tools.jar:/home/abyx/openesb-2.3/glassfish/lib/appserv-jstl.jar:/home/abyx/openesb-2.3/glassfish/lib/javaee.jar:/home/abyx/openesb-2.3/glassfish/lib/appserv-ws.jar:/home/abyx/openesb-2.3/glassfish/lib/mail.jar:/home/abyx/openesb-2.3/glassfish/lib/activation.jar" />
+    <property name="libs.junit_4.javadoc" value="/home/abyx/openesb-2.3/netbeans/java/docs/junit-4.10-javadoc.jar" />
+    <property name="libs.spring-webmvc.javadoc" value="" />
+    <property name="libs.javaee-web-api-6.0.maven-pom" value="" />
+    <property name="j2ee.deploy.on.save" value="true" />
+    <property name="libs.hibernate-support.src" value="" />
+    <property name="jna.boot.library.name" value="jnidispatch-340" />
+    <property name="libs.javaee-endorsed-api-6.0.javadoc" value="/home/abyx/openesb-2.3/netbeans/enterprise/docs/javaee6-doc-api.zip" />
+    <property name="libs.PojoSELib.classpath" value="/home/abyx/openesb-2.3/netbeans/soa/modules/ext/sun-pojo-engine-api.jar:/home/abyx/openesb-2.3/netbeans/soa/modules/ext/jbi.jar" />
+    <property name="libs.spring-webmvc3.0.javadoc" value="" />
+    <property name="annotation.processing.enabled.in.editor" value="true" />
+    <property name="libs.restapi.src" value="" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="javac.deprecation" value="false" />
+    <property name="javadoc.use" value="true" />
+    <property name="client.urlPart" value="" />
+    <property name="sun.java2d.noddraw" value="true" />
+    <property name="libs.jsp-compiler.classpath" value="/home/abyx/openesb-2.3/netbeans/enterprise/ant/extra/jspcompile.jar" />
+    <property name="dist.ear.war" value="dist/MsgTypeIdentifier.war" />
+    <property name="javac.processorpath" value="" />
+    <property name="libs.spring-webmvc.classpath" value="/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/spring/spring-webmvc-2.5.6.SEC03.jar" />
+    <property name="javac.compilerargs" value="" />
+    <property name="ant.file" value="/home/abyx/INSA/stdu/MsgTypeIdentifier/build.xml" />
+    <property name="libs.beans-binding.maven-pom" value="" />
+    <property name="libs.jsf12.classpath" value="/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/jsf-1_2/commons-beanutils.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/jsf-1_2/commons-collections.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/jsf-1_2/commons-digester.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/jsf-1_2/commons-logging.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/jsf-1_2/jsf-api.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/jsf-1_2/jsf-impl.jar" />
+    <property name="libs.Encoder-HL7.src" value="" />
+    <property name="has.custom.manifest" value="true" />
+    <property name="ant.file.type.MsgTypeIdentifier-impl" value="file" />
+    <property name="libs.restapi.maven-pom" value="" />
+    <property name="libs.beans-binding.src" value="" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="libs.swing-layout.src" value="/home/abyx/openesb-2.3/netbeans/platform/docs/swing-layout-1.0.4-src.zip" />
+    <property name="org.openide.major.version" value="IDE/1" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="do.display.browser.debug" value="true" />
+    <property name="libs.Encoder-Custom.maven-pom" value="" />
+    <property name="netbeans.user" value="/home/abyx/openesb-2.3/.netbeans/openesb" />
+    <property name="javadoc.additionalparam" value="" />
+    <property name="java.io.tmpdir" value="/tmp" />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="endorsed.classpath.cmd.line.arg" value="" />
+    <property name="junit.available" value="true" />
+    <property name="j2ee.platform.wsit.classpath" value="" />
+    <property name="compile.jsps" value="false" />
+    <property name="libs.jsp-compiler.src" value="" />
+    <property name="org.openide.awt.ActionReference.completion" value="org.netbeans.modules.apisupport.project.layers.PathCompletions" />
+    <property name="libs.Encoder-COCO.src" value="" />
+    <property name="deploy.ant.properties.file" value="/home/abyx/openesb-2.3/.netbeans/openesb/glassfish.properties" />
+    <property name="j2ee.platform.wscompile.classpath" value="/home/abyx/openesb-2.3/glassfish/lib/endorsed/webservices-api.jar:/home/abyx/openesb-2.3/glassfish/lib/j2ee.jar:/home/abyx/openesb-2.3/glassfish/lib/saaj-api.jar:/home/abyx/openesb-2.3/glassfish/lib/saaj-impl.jar:/home/abyx/openesb-2.3/glassfish/lib/jaxrpc-api.jar:/home/abyx/openesb-2.3/glassfish/lib/jaxrpc-impl.jar:/home/abyx/openesb-2.3/glassfish/lib/endorsed/jaxp-api.jar:/home/abyx/openesb-2.3/glassfish/lib/appserv-ws.jar:/home/abyx/openesb-2.3/glassfish/lib/webservices-tools.jar:/home/abyx/openesb-2.3/glassfish/lib/webservices-rt.jar" />
+    <property name="sun.boot.library.path" value="/opt/jdk1.7.0_25/jre/lib/amd64" />
+    <property name="have.sources" value="true" />
+    <property name="debug.classpath" value="build/web/WEB-INF/classes:" />
+    <property name="war.name" value="MsgTypeIdentifier.war" />
+    <property name="javadoc.private" value="false" />
+    <property name="test.src.dir" value="test" />
+    <property name="libs.jsf20.classpath" value="/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/jsf-2_1/jsf-api.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/jsf-2_1/jsf-impl.jar" />
+    <property name="javadoc.encoding.used" value="UTF-8" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="ant.project.name" value="MsgTypeIdentifier" />
+    <property name="libs.PojoSELib.javadoc" value="/home/abyx/openesb-2.3/netbeans/soa/modules/ext/sun-pojo-engine-api-javadoc.jar" />
+    <property name="netbeans.hash.code" value="unique=0" />
+    <property name="libs.jsp-compilation-syscp.maven-pom" value="" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="libs.CopyLibs.javadoc" value="" />
+    <property name="org.openide.specification.version" value="6.2" />
+    <property name="j2ee.server.home" value="/home/abyx/openesb-2.3/glassfish" />
+    <property name="libs.hibernate-support.classpath" value="/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/antlr-2.7.6.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/asm.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/asm-attrs.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/cglib-2.1.3.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/commons-collections-2.1.1.jar:/home/abyx/openesb-2.3/netbeans/ide/modules/org-apache-commons-logging.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/dom4j-1.6.1.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/ehcache-1.2.3.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/jdbc2_0-stdext.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/jta.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/hibernate3.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/hibernate-tools.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/hibernate-annotations.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/hibernate-commons-annotations.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/hibernate-entitymanager.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/javassist.jar" />
+    <property name="user.home" value="/home/abyx" />
+    <property name="annotation.processing.processors.list" value="" />
+    <property name="libs.primefaces.maven-pom" value="" />
+    <property name="debug-args-line" value="-Xdebug" />
+    <property name="libs.javaee-api-6.0.maven-pom" value="" />
+    <property name="libs.JWSAntTasks.src" value="" />
+    <property name="libs.CopyLibs.maven-pom" value="" />
+    <property name="libs.spring-framework300.javadoc" value="" />
+    <property name="libs.hibernate-persistence.maven-pom" value="" />
+    <property name="libs.absolutelayout.javadoc" value="" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="nu.validator.spec.microsyntax-descriptions" value="jar:file:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/validator.jar!/nu/validator/localentities/files/wiki_whatwg_org_wiki_MicrosyntaxDescriptions" />
+    <property name="libs.Encoder-COCO.maven-pom" value="" />
+    <property name="no.dist.ear.dir" value="true" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="libs.javac-api.classpath" value="/home/abyx/openesb-2.3/netbeans/java/modules/ext/nb-javac-api.jar" />
+    <property name="java.version" value="1.7.0_25" />
+    <property name="run.jvmargs.ide" value="" />
+    <property name="javadoc.version" value="false" />
+    <property name="libs.MySQLDriver.javadoc" value="" />
+    <property name="org.openide.version" value="deprecated" />
+    <property name="ant.file.type.MsgTypeIdentifier" value="file" />
+    <property name="source.encoding" value="UTF-8" />
+    <property name="ap.cmd.line.internal" value="" />
+    <property name="libs.eclipselinkmodelgen.maven-pom" value="" />
+    <property name="libs.jsp-compilation-syscp.javadoc" value="" />
+    <property name="libs.junit.maven-pom" value="" />
+    <property name="libs.eclipselinkmodelgen.javadoc" value="" />
+    <property name="libs.metro.javadoc" value="/home/abyx/openesb-2.3/netbeans/enterprise/docs/metro-1.4-doc.zip" />
+    <property name="libs.struts.maven-pom" value="" />
+    <property name="netbeans.home+have.tests" value="true" />
+    <property name="libs.testng.maven-pom" value="" />
+    <property name="libs.jaxb.src" value="" />
+    <property name="libs.Encoder-HL7.maven-pom" value="" />
+    <property name="libs.jaxb.classpath" value="/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/jaxb-impl.jar:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/jaxb-xjc.jar:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/jaxb1-impl.jar:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/activation.jar:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/api/jaxb-api.jar:/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/api/jsr173_1.0_api.jar" />
+    <property name="dist.javadoc.dir" value="dist/javadoc" />
+    <property name="libs.spring-webmvc3.0.classpath" value="/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-webmvc-3.1.1.RELEASE.jar" />
+    <property name="libs.swing-layout.classpath" value="/home/abyx/openesb-2.3/netbeans/platform/modules/ext/swing-layout-1.0.4.jar" />
+    <property name="jspc.dtds" value="/resources/dtds/" />
+    <property name="libs.restlib.src" value="" />
+    <property name="javac.source" value="1.5" />
+    <property name="build.generated.dir" value="build/generated" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="libs.hibernate-persistence.src" value="" />
+    <property name="java.specification.version" value="1.7" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="libs.jaxws21.maven-pom" value="" />
+    <property name="nb.registration.enabled" value="false" />
+    <property name="nb.junit.batch" value="true" />
+    <property name="ant.file.MsgTypeIdentifier" value="/home/abyx/INSA/stdu/MsgTypeIdentifier/build.xml" />
+    <property name="libs.spring-framework.maven-pom" value="" />
+    <property name="sun.boot.class.path" value="/opt/jdk1.7.0_25/jre/lib/resources.jar:/opt/jdk1.7.0_25/jre/lib/rt.jar:/opt/jdk1.7.0_25/jre/lib/sunrsasign.jar:/opt/jdk1.7.0_25/jre/lib/jsse.jar:/opt/jdk1.7.0_25/jre/lib/jce.jar:/opt/jdk1.7.0_25/jre/lib/charsets.jar:/opt/jdk1.7.0_25/jre/lib/jfr.jar:/opt/jdk1.7.0_25/jre/classes" />
+    <property name="javac.target" value="1.5" />
+    <property name="build.test.classes.dir" value="build/test/classes" />
+    <property name="libs.Encoder-Framework.maven-pom" value="" />
+    <property name="src.dir" value="src/java" />
+    <property name="annotation.processing.enabled" value="true" />
+    <property name="libs.jsf20.src" value="" />
+    <property name="libs.jpa20-persistence.src" value="" />
+    <property name="libs.jsf12.src" value="" />
+    <property name="j2ee.platform" value="1.5" />
+    <property name="libs.JAVADB_DRIVER_LABEL.maven-pom" value="" />
+    <property name="libs.struts.javadoc" value="/home/abyx/openesb-2.3/netbeans/enterprise/docs/struts-1.3.10-javadoc.zip" />
+    <property name="ignore.failing.tests" value="true" />
+    <property name="web.docbase.dir" value="web" />
+    <property name="libs.primefaces.src" value="" />
+    <property name="dist.dir" value="dist" />
+    <property name="testng.debug.mode" value="" />
+    <property name="javac.fork" value="false" />
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob" />
+    <property name="default.javac.source" value="1.7" />
+    <property name="debug-transport-by-os" value="dt_socket" />
+    <property name="libs.MySQLDriver.src" value="" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="libs.Encoder-COCO.javadoc" value="" />
+    <property name="build.test.results.dir" value="build/test/results" />
+    <property name="java.runtime.version" value="1.7.0_25-b15" />
+    <property name="libs.ejb3-persistence.javadoc" value="" />
+    <property name="jna.platform.library.path" value="/usr/lib/x86_64-linux-gnu:/lib/x86_64-linux-gnu:/lib64:/usr/lib:/lib" />
+    <property name="do.tmp.war.package.with.custom.manifest" value="true" />
+    <property name="default.javac.target" value="1.7" />
+    <property name="libs.junit_4.classpath" value="/home/abyx/openesb-2.3/netbeans/java/modules/ext/junit-4.10.jar" />
+    <property name="user.timezone" value="" />
+    <property name="nb.junit.single" value="false" />
+    <property name="libs.JAVADB_DRIVER_LABEL.javadoc" value="" />
+    <property name="libs.javaee-endorsed-api-6.0.maven-pom" value="" />
+    <property name="netbeans.dirs" value="/home/abyx/openesb-2.3/netbeans/bin/../soa:/home/abyx/openesb-2.3/netbeans/bin/../apisupport:/home/abyx/openesb-2.3/netbeans/bin/../enterprise:/home/abyx/openesb-2.3/netbeans/bin/../ergonomics:/home/abyx/openesb-2.3/netbeans/bin/../harness:/home/abyx/openesb-2.3/netbeans/bin/../ide:/home/abyx/openesb-2.3/netbeans/bin/../java:/home/abyx/openesb-2.3/netbeans/bin/../nb:/home/abyx/openesb-2.3/netbeans/bin/../profiler:/home/abyx/openesb-2.3/netbeans/bin/../webcommon:/home/abyx/openesb-2.3/netbeans/bin/../websvccommon:" />
+    <property name="libs.jsf20.javadoc" value="/home/abyx/openesb-2.3/netbeans/enterprise/docs/javaee6-doc-api.zip" />
+    <property name="java.ext.dirs" value="/opt/jdk1.7.0_25/jre/lib/ext:/usr/java/packages/lib/ext" />
+    <property name="libs.metro.src" value="" />
+    <property name="libs.absolutelayout.classpath" value="/home/abyx/openesb-2.3/netbeans/java/modules/ext/AbsoluteLayout.jar" />
+    <property name="excludes" value="" />
+    <property name="libs.metro.classpath" value="/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/activation.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/metro/webservices-api.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/metro/webservices-extra-api.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/metro/webservices-extra.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/metro/webservices-rt.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/metro/webservices-tools.jar" />
+    <property name="libs.restlib.maven-pom" value="" />
+    <property name="java.class.path" value="/home/abyx/INSA/stdu/MsgTypeIdentifier/build/web/WEB-INF/classes:/home/abyx/openesb-2.3/netbeans/java/modules/ext/junit-4.10.jar:/home/abyx/INSA/stdu/MsgTypeIdentifier/build/test/classes:/home/abyx/openesb-2.3/glassfish/lib/endorsed/webservices-api.jar:/home/abyx/openesb-2.3/glassfish/lib/javaee.jar:/home/abyx/openesb-2.3/glassfish/lib/jsf-impl.jar:/home/abyx/openesb-2.3/glassfish/lib/activation.jar:/home/abyx/openesb-2.3/glassfish/lib/appserv-tags.jar:/home/abyx/openesb-2.3/glassfish/lib/mail.jar:/home/abyx/openesb-2.3/glassfish/lib/appserv-jstl.jar:/home/abyx/openesb-2.3/glassfish/lib/webservices-tools.jar:/home/abyx/openesb-2.3/glassfish/lib/webservices-rt.jar:/home/abyx/openesb-2.3/glassfish/lib/appserv-ws.jar:/home/abyx/openesb-2.3/glassfish/lib/asm-3.1.jar:/home/abyx/openesb-2.3/glassfish/lib/jersey-bundle-1.0.3.1.jar:/home/abyx/openesb-2.3/glassfish/lib/jettison-1.0.1.jar:/home/abyx/openesb-2.3/glassfish/lib/jsr311-api-1.0.jar:/home/abyx/openesb-2.3/netbeans/java/ant/lib/ant-launcher.jar:/home/abyx/openesb-2.3/netbeans/java/ant/lib/ant.jar:/home/abyx/openesb-2.3/netbeans/java/ant/lib/ant-junit.jar:/home/abyx/openesb-2.3/netbeans/java/ant/lib/ant-junit4.jar" />
+    <property name="libs.absolutelayout.src" value="" />
+    <property name="libs.jpa20-persistence.classpath" value="/home/abyx/openesb-2.3/netbeans/java/modules/ext/eclipselink/javax.persistence-2.0.3.jar" />
+    <property name="j2ee.server.type" value="J2EE" />
+    <property name="os.version" value="3.11.0-12-generic" />
+    <property name="sun.awt.enableExtraMouseButtons" value="true" />
+    <property name="sun.desktop" value="gnome" />
+    <property name="libs.PojoSELib.maven-pom" value="" />
+    <property name="libs.restlib.javadoc" value="/home/abyx/openesb-2.3/netbeans/enterprise/docs/jersey-1.8-javadoc.zip:/home/abyx/openesb-2.3/netbeans/enterprise/docs/jersey-apache-client-1.8-javadoc.zip:/home/abyx/openesb-2.3/netbeans/enterprise/docs/jersey-atom-abdera-1.8-javadoc.zip:/home/abyx/openesb-2.3/netbeans/enterprise/docs/jersey-guice-1.8-javadoc.zip:/home/abyx/openesb-2.3/netbeans/enterprise/docs/jersey-multipart-1.8-javadoc.zip:/home/abyx/openesb-2.3/netbeans/enterprise/docs/jersey-simple-server-1.8-javadoc.zip:/home/abyx/openesb-2.3/netbeans/enterprise/docs/jersey-spring-1.8-javadoc.zip:/home/abyx/openesb-2.3/netbeans/enterprise/docs/oauth-client-1.8-javadoc.zip:/home/abyx/openesb-2.3/netbeans/enterprise/docs/oauth-server-1.8-javadoc.zip:/home/abyx/openesb-2.3/netbeans/enterprise/docs/oauth-signature-1.8-javadoc.zip" />
+    <property name="war.content.additional" value="" />
+    <property name="libs.JAXB-ENDORSED.classpath" value="/home/abyx/openesb-2.3/netbeans/ide/modules/ext/jaxb/api/jaxb-api.jar" />
+    <property name="j2ee.platform.embeddableejb.classpath" value="" />
+    <property name="forceRedeploy" value="false" />
+    <property name="libs.eclipselink.classpath" value="/home/abyx/openesb-2.3/netbeans/java/modules/ext/eclipselink/eclipselink-2.3.2.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/eclipselink/javax.persistence-2.0.3.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/eclipselink/org.eclipse.persistence.jpa.jpql_1.0.1.jar" />
+    <property name="libs.beans-binding.javadoc" value="/home/abyx/openesb-2.3/netbeans/java/docs/beansbinding-1.2.1-doc.zip" />
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="libs.CopyLibs.classpath" value="/home/abyx/openesb-2.3/netbeans/java/ant/extra/org-netbeans-modules-java-j2seproject-copylibstask.jar" />
+    <property name="libs.spring-framework300.classpath" value="/home/abyx/openesb-2.3/netbeans/ide/modules/org-apache-commons-logging.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/cglib-2.2.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-aop-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-asm-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-aspects-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-beans-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-context-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-context-support-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-core-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-expression-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-instrument-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-instrument-tomcat-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-jdbc-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-jms-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-orm-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-oxm-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-test-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-tx-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-web-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-webmvc-portlet-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-webmvc-3.1.1.RELEASE.jar:/home/abyx/openesb-2.3/netbeans/java/modules/ext/spring-3.0/spring-struts-3.1.1.RELEASE.jar" />
+    <property name="libs.jsp-compiler.maven-pom" value="" />
+    <property name="libs.Encoder-COCO.classpath" value="/home/abyx/openesb-2.3/netbeans/soa/modules/ext/coco.jar:/home/abyx/openesb-2.3/netbeans/soa/modules/ext/cocoencoder-xsdextension.jar" />
+    <property name="libs.spring-webmvc.maven-pom" value="" />
+    <property name="libs.ejb3-persistence.classpath" value="/home/abyx/openesb-2.3/netbeans/java/modules/ext/hibernate/ejb3-persistence.jar" />
+    <property name="libs.JAXB-ENDORSED.src" value="" />
+    <property name="libs.spring-framework.javadoc" value="" />
+    <property name="libs.testng.javadoc" value="/home/abyx/openesb-2.3/netbeans/platform/docs/testng-6.5.1-javadoc.zip" />
+    <property name="libs.PostgreSQLDriver.classpath" value="/home/abyx/openesb-2.3/netbeans/ide/modules/ext/postgresql-9.1-901.jdbc4.jar" />
+    <property name="libs.jsf12.maven-pom" value="" />
+    <property name="libs.Encoder-Custom.src" value="" />
+    <property name="libs.junit.src" value="" />
+    <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
+    <property name="libs.CopyLibs.src" value="" />
+    <property name="build.dir" value="build" />
+    <property name="libs.jsp-compilation.classpath" value="/home/abyx/openesb-2.3/netbeans/java/ant/lib/ant.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/servlet3.0-jsp2.2-api.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/glassfish-jspparser-3.0.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/jsf-2_1/jsf-api.jar:/home/abyx/openesb-2.3/netbeans/enterprise/modules/ext/jstl.jar:/home/abyx/openesb-2.3/netbeans/java/ant/lib/ant-launcher.jar" />
+    <property name="j2ee.platform.is.jsr109" value="true" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.8.3 compiled on February 26 2012" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
+    <property name="jdkBug6558476" value="false" />
+    <property name="javadoc.nonavbar" value="false" />
+    <property name="platform.active" value="default_platform" />
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
+    <property name="war.ear.name" value="MsgTypeIdentifier.war" />
+  </properties>
+  <testcase classname="msgtypeid.MsgTypeIdentifierWSTest" name="testIdentifyMsgTypeFromMDM" time="0.018">
+    <failure message="Message should be found as &apos;from MDM&apos;." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Message should be found as &apos;from MDM&apos;.
+	at msgtypeid.MsgTypeIdentifierWSTest.testIdentifyMsgTypeFromMDM(MsgTypeIdentifierWSTest.java:60)
+</failure>
+  </testcase>
+  <testcase classname="msgtypeid.MsgTypeIdentifierWSTest" name="testIdentifyMsgTypeFromEmpty" time="0.004">
+    <failure message="Message should be found as &apos;from unknown&apos;." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Message should be found as &apos;from unknown&apos;.
+	at msgtypeid.MsgTypeIdentifierWSTest.testIdentifyMsgTypeFromEmpty(MsgTypeIdentifierWSTest.java:70)
+</failure>
+  </testcase>
+  <testcase classname="msgtypeid.MsgTypeIdentifierWSTest" name="testIdentifyMsgTypeFromOther" time="0.004">
+    <failure message="Message should be found as &apos;from unknown&apos;." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Message should be found as &apos;from unknown&apos;.
+	at msgtypeid.MsgTypeIdentifierWSTest.testIdentifyMsgTypeFromOther(MsgTypeIdentifierWSTest.java:80)
+</failure>
+  </testcase>
+  <testcase classname="msgtypeid.MsgTypeIdentifierWSTest" name="testIdentifyMsgTypeFromDQM" time="0.005">
+    <failure message="Message should be found as &apos;from DQM&apos;." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Message should be found as &apos;from DQM&apos;.
+	at msgtypeid.MsgTypeIdentifierWSTest.testIdentifyMsgTypeFromDQM(MsgTypeIdentifierWSTest.java:50)
+</failure>
+  </testcase>
+  <system-out><![CDATA[identifyMsgType from MDM
+identifyMsgType from Empty
+identifyMsgType from Other
+identifyMsgType from DQM
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
