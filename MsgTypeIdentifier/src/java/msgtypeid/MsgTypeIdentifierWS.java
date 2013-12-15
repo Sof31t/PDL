@@ -29,7 +29,7 @@ public class MsgTypeIdentifierWS {
      * @return
      */
     @WebMethod(operationName="identifyMsgType")
-    public static int identifyMsgType(@WebParam(name = "message") String msg){
+    public int identifyMsgType(@WebParam(name = "message") String msg){
         int i = 0;
         System.out.println("Initializing identifyMsgType");
         if (msg.equals("fromDQM")){ 

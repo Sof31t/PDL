@@ -46,7 +46,8 @@ public class MsgTypeIdentifierWSTest {
         //MsgTypeIdentifierWS inst = new MsgTypeIdentifierWS();
         int expResult = 1;
         int result;
-        result = MsgTypeIdentifierWS.identifyMsgType(msg);
+        MsgTypeIdentifierWS ws = new MsgTypeIdentifierWS();
+        result = ws.identifyMsgType(msg);
         //System.out.println("Result returned : "+Integer.toString(result));
         assertEquals(expResult, result);
         //fail("Message should be found as 'from DQM'.");
@@ -57,7 +58,8 @@ public class MsgTypeIdentifierWSTest {
         String msg = "fromMDM";
         //MsgTypeIdentifierWS instance = new MsgTypeIdentifierWS();
         int expResult = 2;
-        int result = MsgTypeIdentifierWS.identifyMsgType(msg);
+        MsgTypeIdentifierWS ws = new MsgTypeIdentifierWS();
+        int result = ws.identifyMsgType(msg);
         //System.out.println("Result returned : "+Integer.toString(result));
         assertEquals(expResult, result);
         //fail("Message should be found as 'from MDM'.");
@@ -68,7 +70,8 @@ public class MsgTypeIdentifierWSTest {
         String msg = "";
         //MsgTypeIdentifierWS instance = new MsgTypeIdentifierWS();
         int expResult = 0;
-        int result = MsgTypeIdentifierWS.identifyMsgType(msg);
+        MsgTypeIdentifierWS ws = new MsgTypeIdentifierWS();
+        int result = ws.identifyMsgType(msg);
         //System.out.println("Result returned : "+Integer.toString(result));
         assertEquals(expResult, result);
         //fail("Message should be found as 'from unknown'.");
@@ -79,7 +82,8 @@ public class MsgTypeIdentifierWSTest {
         String msg = "fromOther";
         //MsgTypeIdentifierWS instance = new MsgTypeIdentifierWS();
         int expResult = 0;
-        int result = MsgTypeIdentifierWS.identifyMsgType(msg);
+        MsgTypeIdentifierWS ws = new MsgTypeIdentifierWS();
+        int result = ws.identifyMsgType(msg);
         boolean cond = expResult == result;
         //System.out.println("Result returned : "+Boolean.toString(cond));
         assertTrue(cond);

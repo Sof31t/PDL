@@ -10,6 +10,15 @@
     xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2"
     xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
     xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling">
+    <import namespace="http://enterprise.netbeans.org/bpel/MsgTypeIdentifierWSWrapper" location="MsgTypeIdentifierWSWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://msgtypeid/" location="MsgTypeIdentifierWS.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="PartnerLinkMsgTypeIdentWS" xmlns:tns="http://enterprise.netbeans.org/bpel/MsgTypeIdentifierWSWrapper" partnerLinkType="tns:MsgTypeIdentifierWSLinkType" partnerRole="MsgTypeIdentifierWSRole"/>
+    </partnerLinks>
     <sequence>
-   </sequence>
+        <receive name="Receive1" createInstance="yes"/>
+        <assign name="Assign1"/>
+        <invoke name="Invoke1" partnerLink="PartnerLinkMsgTypeIdentWS" operation="identifyMsgType" xmlns:tns="http://msgtypeid/" portType="tns:MsgTypeIdentifierWS"/>
+        <assign name="Assign2"/>
+    </sequence>
 </process>
