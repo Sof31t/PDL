@@ -16,9 +16,15 @@
         <partnerLink name="PartnerLinkMsgTypeIdentWS" xmlns:tns="http://enterprise.netbeans.org/bpel/MsgTypeIdentifierWSWrapper" partnerLinkType="tns:MsgTypeIdentifierWSLinkType" partnerRole="MsgTypeIdentifierWSRole"/>
     </partnerLinks>
     <sequence>
-        <receive name="Receive1" createInstance="yes"/>
+        <receive name="ReceiveMessage" createInstance="yes"/>
         <assign name="Assign1"/>
-        <invoke name="Invoke1" partnerLink="PartnerLinkMsgTypeIdentWS" operation="identifyMsgType" xmlns:tns="http://msgtypeid/" portType="tns:MsgTypeIdentifierWS"/>
+        <invoke name="SearchForInterestedReceivers" partnerLink="PartnerLinkMsgTypeIdentWS" operation="identifyMsgType" xmlns:tns="http://msgtypeid/" portType="tns:MsgTypeIdentifierWS"/>
         <assign name="Assign2"/>
+        <forEach name="ForEachReceiver" parallel="no" counterName="ForEach1Counter">
+            <documentation>For each interested receiver, we transmit the initially received message</documentation>
+            <scope name="ReceiverX">
+                <invoke name="TransmitMsg"/>
+            </scope>
+        </forEach>
     </sequence>
 </process>
