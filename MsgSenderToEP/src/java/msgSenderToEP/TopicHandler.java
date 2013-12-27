@@ -19,24 +19,29 @@ public class TopicHandler {
     // constructor
     public TopicHandler(String topicName) {
         try {
+            // creation of context
             InitialContext iCtx = new InitialContext();
-            Object tmp = iCtx.lookup("TopicConnectionFactory");
-            TopicConnectionFactory cf = (TopicConnectionFactory) tmp;
-            conn = cf.createTopicConnection();
-            session = conn.createTopicSession(false, Session.AUTO_ACKNOWLEDGE);
-            this.topic = session.createTopic(topicName);
+            // retrieval of Factory
+            Object tmp = iCtx.lookup("TopicConnectionFactory"); 
+            TopicConnectionFactory cf = (TopicConnectionFactory) tmp; 
+            // creation of connection
+            conn = cf.createTopicConnection(); 
+            // creation of session in the connection
+            session = conn.createTopicSession(false, Session.AUTO_ACKNOWLEDGE); 
+            // creation of topic in the session
+            this.topic = session.createTopic(topicName); 
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        
+        }        
     }
-    public TopicConnection getConnection(){
+    // Classic Getters for the Topic parameters
+    public TopicConnection getConnection(){ // Connection
         return this.conn;
     }
-    public TopicSession getSession(){
+    public TopicSession getSession(){ // Session
         return this.session;
     }
-    public Topic getTopic(){
+    public Topic getTopic(){ // Topic
         return this.topic;
     }
 

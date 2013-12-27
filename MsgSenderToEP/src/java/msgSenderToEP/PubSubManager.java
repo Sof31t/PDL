@@ -14,7 +14,7 @@ import javax.jms.TopicSession;
  *
  * @author abyx
  */
-public class PubSubManager extends Thread{
+public class PubSubManager {
     
     //private HashMap<TopicHandler,String> topicsByHandler;
     // The maps containing all the registered TopicHandler objects 
@@ -23,43 +23,49 @@ public class PubSubManager extends Thread{
     public PubSubManager () {
         
     }
-    
-    public void run(){
-        // init list of Topics (loading a file ?)
-        addTopic("fromDQM");
-        addTopic("fromMDM");
-    }
-    
-    // classic getter
-    /*public TopicHandler getTopic(String s){
-        return topicsByString.get(s);
-    }*/
+        
     
     // get Topic Connection
+    // @param t : topic name
+    // @result : TopicConnection wanted
     public TopicConnection getTopicConnection (String t){
         TopicConnection tc = null;
-        tc = topicsByString.get(t).getConnection();
+        if (existsInTopicsByString(t)) { // if in map
+            tc = topicsByString.get(t).getConnection();
+        }
         return tc;
     }
+    // get TopicSession
+    // @param t : topic name
+    // @result : TopicSession wanted
     public TopicSession getTopicSession (String t){
         TopicSession tc = null;
-        tc = topicsByString.get(t).getSession();
+        if (existsInTopicsByString(t)) { // if in map
+            tc = topicsByString.get(t).getSession();
+        }
         return tc;
     }
+    // get Topic
+    // @param t : topic name
+    // @result : Topic wanted
     public Topic getTopic (String t){
         Topic tc = null;
-        if (existsInTopicsByString(t)) {
+        if (existsInTopicsByString(t)) { // if in map
             tc = topicsByString.get(t).getTopic();
         }
         return tc;
     }
     
     // checks if the topic has already been registered.
+    // @param t : topic name
+    // @result : true if exists in map, false otherwise
     private boolean existsInTopicsByString(String t){
         return topicsByString.containsKey(t);
     }
     
     // adds a topic to the list of registered topics
+    // @param name : topic name
+    // @result : topic name to store 
     public String addTopic (String name) {
         TopicHandler t = new TopicHandler(name);
         //topicsByHandler.put(t,name);
@@ -84,6 +90,8 @@ public class PubSubManager extends Thread{
         }
     }
     
+}
+
     // subscribes a component to a topic
     // @param i : name of the topic
     // @param subscriber : name of the subscriber
@@ -99,4 +107,3 @@ public class PubSubManager extends Thread{
         TopSubscriber ts = new TopSubscriber(th.getSession(), th.getTopic());
         ts.unsubscribeTopic(); 
     }*/
-}
