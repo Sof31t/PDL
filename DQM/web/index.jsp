@@ -15,6 +15,6 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <p> this is a test </p>
+        <p> this is a deltawi's test </p>
     </body>
 </html>
