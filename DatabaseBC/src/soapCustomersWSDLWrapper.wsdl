@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="soapCustomersWSDLWrapper" targetNamespace="http://enterprise.netbeans.org/bpel/soapCustomersWSDLWrapper" xmlns:tns="http://enterprise.netbeans.org/bpel/soapCustomersWSDLWrapper" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCustomersWSDL">
+    <import location="soapCustomersWSDL.wsdl" namespace="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCustomersWSDL"/>
+    <plnk:partnerLinkType name="soapCustomersWSDLLinkType">
+        <plnk:role name="soapCustomersWSDLRole" portType="ns:soapCustomersWSDLPortType"/>
+    </plnk:partnerLinkType>
+</definitions>

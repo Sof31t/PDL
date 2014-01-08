@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="soapCustomersWSDL" targetNamespace="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCustomersWSDL"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCustomersWSDL" xmlns:ns="http://j2ee.netbeans.org/xsd/tableSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema targetNamespace="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCustomersWSDL">
+            <xsd:import namespace="http://j2ee.netbeans.org/xsd/tableSchema" schemaLocation="customers.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="soapCustomersWSDLOperationRequest">
+        <part name="operation" type="xsd:string"/>
+        <part name="customer" type="ns:customers"/>
+    </message>
+    <message name="soapCustomersWSDLOperationResponse">
+        <part name="customerResp" type="ns:customers"/>
+    </message>
+    <portType name="soapCustomersWSDLPortType">
+        <operation name="soapCustomersWSDLOperation">
+            <input name="input1" message="tns:soapCustomersWSDLOperationRequest"/>
+            <output name="output1" message="tns:soapCustomersWSDLOperationResponse"/>
+        </operation>
+    </portType>
+    <binding name="soapCustomersWSDLBinding" type="tns:soapCustomersWSDLPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="soapCustomersWSDLOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCustomersWSDL"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCustomersWSDL"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="soapCustomersWSDLService">
+        <port name="soapCustomersWSDLPort" binding="tns:soapCustomersWSDLBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/soapCustomersWSDLService/soapCustomersWSDLPort"/>
+        </port>
+    </service>
+</definitions>
