@@ -9,16 +9,20 @@
         </xsd:schema>
     </types>
     <message name="soapCustomersWSDLOperationRequest">
-        <part name="operation" type="xsd:string"/>
         <part name="customer" type="ns:customers"/>
+        <part name="operation" type="xsd:string"/>
     </message>
     <message name="soapCustomersWSDLOperationResponse">
         <part name="customerResp" type="ns:customers"/>
+    </message>
+    <message name="soapCustomersWSDLOperationFault">
+        <part name="part1" type="xsd:string"/>
     </message>
     <portType name="soapCustomersWSDLPortType">
         <operation name="soapCustomersWSDLOperation">
             <input name="input1" message="tns:soapCustomersWSDLOperationRequest"/>
             <output name="output1" message="tns:soapCustomersWSDLOperationResponse"/>
+            <fault name="fault1" message="tns:soapCustomersWSDLOperationFault"/>
         </operation>
     </portType>
     <binding name="soapCustomersWSDLBinding" type="tns:soapCustomersWSDLPortType">
@@ -31,6 +35,9 @@
             <output name="output1">
                 <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCustomersWSDL"/>
             </output>
+            <fault name="fault1">
+                <soap:fault name="fault1" use="literal" namespace="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCustomersWSDL"/>
+            </fault>
         </operation>
     </binding>
     <service name="soapCustomersWSDLService">

@@ -3,7 +3,7 @@
     <endpoints>
         <endpoint endpoint-name="port" interface-name="ns1:jdbcPortType" name="endpoint1" service-name="ns1:service"/>
         <endpoint endpoint-name="soapCustomersWSDLPort" interface-name="ns2:soapCustomersWSDLPortType" name="endpoint2" service-name="ns2:soapCustomersWSDLService"/>
-        <endpoint display-name="SoapCustomersPartnerLink" endpoint-name="soapCustomersWSDLRole_myRole" file-path="databaseBC.bpel" interface-name="ns2:soapCustomersWSDLPortType" name="endpoint3" process-name="databaseBC" service-name="ns3:SoapCustomersPartnerLink"/>
+        <endpoint display-name="soapCustomersPartnerLink" endpoint-name="soapCustomersWSDLRole_myRole" file-path="databaseBC.bpel" interface-name="ns2:soapCustomersWSDLPortType" name="endpoint3" process-name="databaseBC" service-name="ns3:soapCustomersPartnerLink"/>
         <endpoint display-name="PartnerLinkCustomers" endpoint-name="jdbcPortTypeRole_partnerRole" file-path="databaseBC.bpel" interface-name="ns1:jdbcPortType" name="endpoint4" process-name="databaseBC" service-name="ns3:PartnerLinkCustomers"/>
     </endpoints>
     <service-units>
