@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<process
+    name="countriesBC"
+    targetNamespace="http://enterprise.netbeans.org/bpel/DatabaseBC/countriesBC"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/DatabaseBC/countriesBC"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2"
+    xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling" xmlns:ns0="http://j2ee.netbeans.org/xsd/tableSchema">
+    <import namespace="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" location="countriesWSDL.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/soapCountriesWSDLWrapper" location="soapCountriesWSDLWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCountriesWSDL" location="soapCountriesWSDL.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="soapCountriesPartnerLink" xmlns:tns="http://enterprise.netbeans.org/bpel/soapCountriesWSDLWrapper" partnerLinkType="tns:soapCountriesWSDLLinkType" myRole="soapCountriesWSDLRole"/>
+        <partnerLink name="PartnerLinkCountries" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" partnerLinkType="tns:jdbcpartner" partnerRole="jdbcPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="FindOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" messageType="tns:outputMsg"/>
+        <variable name="FindIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" messageType="tns:inputMsg"/>
+        <variable name="DeleteOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" messageType="tns:RetMsg"/>
+        <variable name="DeleteIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" messageType="tns:inputMsg"/>
+        <variable name="UpdateOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" messageType="tns:RetMsg"/>
+        <variable name="UpdateIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" messageType="tns:inputMsg"/>
+        <variable name="InsertOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" messageType="tns:RetMsg"/>
+        <variable name="InsertIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" messageType="tns:inputMsg"/>
+        <variable name="SoapCountriesWSDLOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCountriesWSDL" messageType="tns:soapCountriesWSDLOperationResponse"/>
+        <variable name="SoapCountriesWSDLOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCountriesWSDL" messageType="tns:soapCountriesWSDLOperationRequest"/>
+    </variables>
+    <sequence>
+        <receive name="Receive1" createInstance="yes" partnerLink="soapCountriesPartnerLink" operation="soapCountriesWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCountriesWSDL" portType="tns:soapCountriesWSDLPortType" variable="SoapCountriesWSDLOperationIn"/>
+        <if name="If1">
+            <condition>$SoapCountriesWSDLOperationIn.operation = 'insert'</condition>
+            <sequence name="Sequence1">
+                <assign name="Assign1">
+                    <copy>
+                        <from>$SoapCountriesWSDLOperationIn.country/ns0:countries_Record/ns0:iso</from>
+                        <to>$InsertIn.part/ns0:countries_Record/ns0:iso</to>
+                    </copy>
+                    <copy>
+                        <from>$SoapCountriesWSDLOperationIn.country/ns0:countries_Record/ns0:name</from>
+                        <to>$InsertIn.part/ns0:countries_Record/ns0:name</to>
+                    </copy>
+                    <copy>
+                        <from>$SoapCountriesWSDLOperationIn.country/ns0:countries_Record/ns0:printable_name</from>
+                        <to>$InsertIn.part/ns0:countries_Record/ns0:printable_name</to>
+                    </copy>
+                    <copy>
+                        <from>$SoapCountriesWSDLOperationIn.country/ns0:countries_Record/ns0:iso3</from>
+                        <to>$InsertIn.part/ns0:countries_Record/ns0:iso3</to>
+                    </copy>
+                    <copy>
+                        <from>$SoapCountriesWSDLOperationIn.country/ns0:countries_Record/ns0:numcode</from>
+                        <to>$InsertIn.part/ns0:countries_Record/ns0:numcode</to>
+                    </copy>
+                </assign>
+                <invoke name="InvokeInsert" partnerLink="PartnerLinkCountries" operation="insert" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" portType="tns:jdbcPortType" inputVariable="InsertIn" outputVariable="InsertOut"/>
+            </sequence>
+            <elseif>
+                <condition>$SoapCountriesWSDLOperationIn.operation= 'update'</condition>
+                <sequence name="Sequence2">
+                    <assign name="Assign2">
+                        <copy>
+                            <from>$SoapCountriesWSDLOperationIn.country/ns0:countries_Record/ns0:iso</from>
+                            <to>$UpdateIn.part/ns0:countries_Record/ns0:iso</to>
+                        </copy>
+                        <copy>
+                            <from>$SoapCountriesWSDLOperationIn.country/ns0:countries_Record/ns0:name</from>
+                            <to>$UpdateIn.part/ns0:countries_Record/ns0:name</to>
+                        </copy>
+                        <copy>
+                            <from>$SoapCountriesWSDLOperationIn.country/ns0:countries_Record/ns0:printable_name</from>
+                            <to>$UpdateIn.part/ns0:countries_Record/ns0:printable_name</to>
+                        </copy>
+                        <copy>
+                            <from>$SoapCountriesWSDLOperationIn.country/ns0:countries_Record/ns0:iso3</from>
+                            <to>$UpdateIn.part/ns0:countries_Record/ns0:iso3</to>
+                        </copy>
+                        <copy>
+                            <from>$SoapCountriesWSDLOperationIn.country/ns0:countries_Record/ns0:numcode</from>
+                            <to>$UpdateIn.part/ns0:countries_Record/ns0:numcode</to>
+                        </copy>
+                    </assign>
+                    <invoke name="InvokeUpdate" partnerLink="PartnerLinkCountries" operation="update" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" portType="tns:jdbcPortType" inputVariable="UpdateIn" outputVariable="UpdateOut"/>
+                </sequence>
+            </elseif>
+            <elseif>
+                <condition>$SoapCountriesWSDLOperationIn.operation = 'delete'</condition>
+                <sequence name="Sequence3">
+                    <assign name="Assign3">
+                        <copy>
+                            <from>$SoapCountriesWSDLOperationIn.country/ns0:countries_Record/ns0:iso</from>
+                            <to>$DeleteIn.part/ns0:countries_Record/ns0:iso</to>
+                        </copy>
+                    </assign>
+                    <invoke name="InvokeDelete" partnerLink="PartnerLinkCountries" operation="delete" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" portType="tns:jdbcPortType" inputVariable="DeleteIn" outputVariable="DeleteOut"/>
+                </sequence>
+            </elseif>
+            <elseif>
+                <condition>$SoapCountriesWSDLOperationIn.operation = 'find'</condition>
+                <sequence name="Sequence4">
+                    <assign name="Assign4">
+                        <copy>
+                            <from>$SoapCountriesWSDLOperationIn.country/ns0:countries_Record/ns0:iso</from>
+                            <to>$FindIn.part/ns0:countries_Record/ns0:iso</to>
+                        </copy>
+                    </assign>
+                    <invoke name="InvokeFind" partnerLink="PartnerLinkCountries" operation="find" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" portType="tns:jdbcPortType" inputVariable="FindIn" outputVariable="FindOut"/>
+                    <assign name="Assign5">
+                        <copy>
+                            <from>$FindOut.part/ns0:countries_Record/ns0:iso</from>
+                            <to>$SoapCountriesWSDLOperationOut.countryResp/ns0:countries_Record/ns0:iso</to>
+                        </copy>
+                        <copy>
+                            <from>$FindOut.part/ns0:countries_Record/ns0:name</from>
+                            <to>$SoapCountriesWSDLOperationOut.countryResp/ns0:countries_Record/ns0:name</to>
+                        </copy>
+                        <copy>
+                            <from>$FindOut.part/ns0:countries_Record/ns0:printable_name</from>
+                            <to>$SoapCountriesWSDLOperationOut.countryResp/ns0:countries_Record/ns0:printable_name</to>
+                        </copy>
+                        <copy>
+                            <from>$FindOut.part/ns0:countries_Record/ns0:iso3</from>
+                            <to>$SoapCountriesWSDLOperationOut.countryResp/ns0:countries_Record/ns0:iso3</to>
+                        </copy>
+                        <copy>
+                            <from>$FindOut.part/ns0:countries_Record/ns0:numcode</from>
+                            <to>$SoapCountriesWSDLOperationOut.countryResp/ns0:countries_Record/ns0:numcode</to>
+                        </copy>
+                        <copy>
+                            <from variable="FindOut" part="part"/>
+                            <to variable="SoapCountriesWSDLOperationOut" part="countryResp"/>
+                        </copy>
+                    </assign>
+                </sequence>
+            </elseif>
+        </if>
+        <reply name="Reply1" partnerLink="soapCountriesPartnerLink" operation="soapCountriesWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCountriesWSDL" portType="tns:soapCountriesWSDLPortType" variable="SoapCountriesWSDLOperationOut"/>
+    </sequence>
+</process>
