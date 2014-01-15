@@ -1,7 +1,9 @@
 
 package pubsubclasses;
 
+import java.util.Hashtable;
 import javax.annotation.Resource;
+import javax.ejb.Stateless;
 import javax.jms.*;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -12,26 +14,28 @@ import javax.naming.InitialContext;*/
  *
  * @author abyx
  */
+//@Stateless
 public class TopicHandler {
     
-    //@Resource(lookup = "jms/topicConnectionFactory")
-    //private static TopicConnectionFactory myConnectionFactory;
+    @Resource(mappedName = "myOwnTopicCF")
+    private TopicConnectionFactory myConnectionFactory;
     
-    private TopicConnection conn = null;
-    private TopicSession session = null;
-    private Topic topic = null;
+    private TopicConnection conn ;
+    private TopicSession session ;
+    private Topic topic ;
 
     // constructor
     public TopicHandler(String topicName) {
         try {
             // creation of context
-            Context iCtx = new InitialContext();
+            /*InitialContext jndi = new InitialContext();
             // retrieval of Factory
-            Object tmp = iCtx.lookup("jms/topicConnectionFactory"); 
-            TopicConnectionFactory myConnectionFactory = (TopicConnectionFactory) tmp; 
+            Object tmp = jndi.lookup("topicConnectionFactory"); 
+            TopicConnectionFactory myConnectionFactory = (TopicConnectionFactory) tmp; */
             // creation of connection
             if (myConnectionFactory == null){
-                System.out.println("Null connection factory");
+                JMSException e = new JMSException("Null TopicConnectionFactory");
+                throw e ;
             }
             System.out.println("Initializing Connection creation");
             conn = myConnectionFactory.createTopicConnection(); 
