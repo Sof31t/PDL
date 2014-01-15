@@ -26,7 +26,7 @@ public class TopPublisher {
             topName = t.getTopicName();
             tc.start();
         } catch (JMSException e) {
-            logger.severe("Failed to start the connection during creation of a sender in topic"+ topName);
+            logger.throwing("TopPublisher","constructor",e);
             //System.out.println("Failed to start the connection during creation of a sender in topic " + topName);
         }
     }
@@ -38,7 +38,7 @@ public class TopPublisher {
             tp.publish(msg);
             topicConn.stop();
         } catch (JMSException e) {
-            logger.severe("Failed to Create publisher and / or send the message");
+            logger.throwing("TopPublisher","publishMsg",e);
             //e.printStackTrace();
         }
     }

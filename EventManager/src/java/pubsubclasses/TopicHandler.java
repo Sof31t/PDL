@@ -49,7 +49,7 @@ public class TopicHandler {
             // creation of topic in the session
             this.topic = session.createTopic(topicName); 
         } catch (Exception e) {
-            logger.severe("Error in TopicHandler Creation");
+            logger.throwing("TopicHandler","constructor",e);
             //e.printStackTrace();
         }        
     }
