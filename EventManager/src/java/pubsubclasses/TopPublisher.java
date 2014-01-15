@@ -4,12 +4,16 @@
  */
 package pubsubclasses;
 
+import java.util.logging.Logger;
 import javax.jms.*;
 /**
  * 
  * @author abyx
  */
 public class TopPublisher {
+    // The logger for the error handling
+    private static final Logger logger = Logger.getLogger(TopicHandler.class.getPackage().getName());
+
     private TopicConnection topicConn;
     private TopicSession topicSess;
     private Topic top;
@@ -22,10 +26,11 @@ public class TopPublisher {
             topName = t.getTopicName();
             tc.start();
         } catch (JMSException e) {
-            System.out.println("Failed to start the connection during creation of a sender in topic " + topName);
+            logger.severe("Failed to start the connection during creation of a sender in topic"+ topName);
+            //System.out.println("Failed to start the connection during creation of a sender in topic " + topName);
         }
     }
-    
+    // This method creates a publisher then sends the wanted message using this publisher
     public void publishMsg(String txt) {
         try {            
             TopicPublisher tp = topicSess.createPublisher(top);
@@ -33,7 +38,8 @@ public class TopPublisher {
             tp.publish(msg);
             topicConn.stop();
         } catch (JMSException e) {
-            e.printStackTrace();
+            logger.severe("Failed to Create publisher and / or send the message");
+            //e.printStackTrace();
         }
     }
     

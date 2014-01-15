@@ -2,6 +2,7 @@
 package pubsubclasses;
 
 import java.util.Hashtable;
+import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.jms.*;
@@ -19,6 +20,9 @@ public class TopicHandler {
     
     @Resource(mappedName = "myOwnTopicCF")
     private TopicConnectionFactory myConnectionFactory;
+    
+    // the logger for the error handling
+    private static final Logger logger = Logger.getLogger(TopicHandler.class.getPackage().getName());
     
     private TopicConnection conn ;
     private TopicSession session ;
@@ -45,7 +49,8 @@ public class TopicHandler {
             // creation of topic in the session
             this.topic = session.createTopic(topicName); 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.severe("Error in TopicHandler Creation");
+            //e.printStackTrace();
         }        
     }
     // Classic Getters for the Topic parameters
