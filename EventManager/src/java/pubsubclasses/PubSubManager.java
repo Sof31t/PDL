@@ -29,7 +29,8 @@ public class PubSubManager {
     // @result : TopicConnection wanted
     public TopicConnection getTopicConnection (String t){
         TopicConnection tc = null;
-        if (existsInTopicsByString(t)) { // if in map
+        // if in map
+        if (existsInTopicsByString(t)) { 
             tc = topicsByString.get(t).getConnection();
         }
         return tc;
@@ -39,7 +40,8 @@ public class PubSubManager {
     // @result : TopicSession wanted
     public TopicSession getTopicSession (String t){
         TopicSession tc = null;
-        if (existsInTopicsByString(t)) { // if in map
+        // if in map
+        if (existsInTopicsByString(t)) { 
             tc = topicsByString.get(t).getSession();
         }
         return tc;
@@ -49,7 +51,8 @@ public class PubSubManager {
     // @result : Topic wanted
     public Topic getTopic (String t){
         Topic tc = null;
-        if (existsInTopicsByString(t)) { // if in map
+        // if in map
+        if (existsInTopicsByString(t)) { 
             tc = topicsByString.get(t).getTopic();
         }
         return tc;
@@ -67,7 +70,7 @@ public class PubSubManager {
     // @result : topic name to store 
     public String addTopic (String name) {
         TopicHandler t = new TopicHandler(name);
-        //topicsByHandler.put(t,name);
+        
         topicsByString.put(name, t);
         return name;
     }
@@ -75,7 +78,7 @@ public class PubSubManager {
     // send a message 
     // @param topic : topic name 
     // @param txt : content of the message to send
-    public void send (String topic, String txt) {
+    public void send (String topic, String txt) throws Error {
         if (existsInTopicsByString(topic)){
         // retrieving the TopicHandler
         TopicHandler th = topicsByString.get(topic);        
@@ -85,7 +88,7 @@ public class PubSubManager {
         tp.publishMsg(txt);
         } else {
             // throw of an error
-            throw(new Error("Error : Topic to send to does not exist. Use addTopic fist"));
+            throw new Error("Error : Topic to send to does not exist. Use addTopic fist");
         }
     }
     

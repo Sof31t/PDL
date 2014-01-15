@@ -15,7 +15,7 @@ import pubsubclasses.PubSubManager;
 public class PubSubWS {
     
     //public PubSubManager psm; // public for tests ONLY
-    public PubSubManager psm;
+    private PubSubManager psm;
     
     // The initialization method
     @WebMethod(operationName = "initEventManager")
@@ -29,23 +29,27 @@ public class PubSubWS {
         psm.send(topic, msg);
     }
     
-    // The Topic creation topic
+    // The Topic creation method
     @WebMethod(operationName = "createTopic")
     public String createTopic(@WebParam(name = "topic") String topic) {
         return psm.addTopic(topic);
     }
     
+    
     // The 3 getters needed to get information to connect to a Topic
-    /*@WebMethod(operationName = "retrieveTopicConnection") // TopicConnection
+    // TopicConnection
+    @WebMethod(operationName = "retrieveTopicConnection") 
     public TopicConnection retrieveTopicConnection(@WebParam(name = "topicName") String topic) {
         return psm.getTopicConnection(topic);
     }
-    @WebMethod(operationName = "retrieveTopicSession") // TopicSession
+    // TopicSession
+    @WebMethod(operationName = "retrieveTopicSession") 
     public TopicSession retrieveTopicSession(@WebParam(name = "topicName") String topic) {
         return psm.getTopicSession(topic);
     }
-    @WebMethod(operationName = "retrieveTopic") // Topic 
+    // Topic 
+    @WebMethod(operationName = "retrieveTopic") 
     public Topic retrieveTopic(@WebParam(name = "topicName") String topic) {
         return psm.getTopic(topic);
-    }   */
+    }  
 }

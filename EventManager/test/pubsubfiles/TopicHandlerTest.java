@@ -49,12 +49,15 @@ public class TopicHandlerTest {
     @Test
     public void testGetTopicName() {
         System.out.println("getTopicName test init.");
-        String topicName = "MyTopic"; // Creation of the name of the topic we want to create
+        // Creation of the name of the topic we want to create
+        String topicName = "MyTopic"; 
         TopicHandler instance = new TopicHandler(topicName);
-        String expResult = topicName; // The expected result is the same as the the one we created
+        // The expected result is the same as the the one we created
+        String expResult = topicName; 
         String result = "";
         try {
-            result = instance.getTopic().getTopicName(); // call of the getTopicName method to retrieve the String name of the Topic
+            // call of the getTopicName method to retrieve the String name of the Topic
+            result = instance.getTopic().getTopicName(); 
         } catch (JMSException ex) {
             Logger.getLogger(TopicHandlerTest.class.getName()).log(Level.SEVERE, null, ex);
         }
