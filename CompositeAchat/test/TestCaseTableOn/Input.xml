@@ -1,0 +1,28 @@
+<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:new="newEventBonAchat_iep">
+  <soapenv:Body>
+    <new:RecordsBatch_MsgObj>
+      <!--Zero or more repetitions:-->
+      <Records_MsgObj>
+        <Id>1</Id>
+        <Name>TANG</Name>
+        <Email>robindon@hotmail.com</Email>
+        <Achat>Note3</Achat>
+        <Shop>TableOn</Shop>
+      </Records_MsgObj>
+      <Records_MsgObj>
+        <Id>2</Id>
+        <Name>TANG</Name>
+        <Email>robindon@hotmail.com</Email>
+        <Achat>Note1</Achat>
+        <Shop>TableOn</Shop>
+      </Records_MsgObj>
+      <Records_MsgObj>
+        <Id>3</Id>
+        <Name>TANG</Name>
+        <Email>robindon@hotmail.com</Email>
+        <Achat>Note2</Achat>
+        <Shop>TableOn</Shop>
+      </Records_MsgObj>
+    </new:RecordsBatch_MsgObj>
+  </soapenv:Body>
+</soapenv:Envelope>
