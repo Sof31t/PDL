@@ -1,3 +1,6 @@
+<%@page import="name.*" %>
+<%@page import="phone.*" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,25 +11,26 @@
         <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <script src="assets/js/bootstrap.min.js"></script>
-        <title>Parser result</title>
+        <title>DQM result</title>
     </head>
     <body>
-
+        <% NameCorrecter name = new NameCorrecter(new String(request.getParameter("name").getBytes("iso-8859-1"), "UTF-8")); %>
+        <% PhoneCorrecter phone = new PhoneCorrecter(new String(request.getParameter("phone").getBytes("iso-8859-1"), "UTF-8")); %>
         <div class="container ">
             <div class="row well">
-                <div class="col-lg-6">
-                    <span class="badge"></span>
-                </div>
-                <div class="col-lg-6" id="parent">
-                    <form class="navbar-form navbar-right" role="search" action="response.jsp">
-                        <div class="form-group">
-                            <input type="text" class="form-control " placeholder="Search" name="Search" id="Search" value="<% out.println(request.getParameter("Search"));%>">
-                        </div>
-                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                    </form>
+            </div>
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Normalized name</div>
+                    <div class="panel-body">
+                        <p><% out.println(name.getString());%></p>
+                    </div>
+                    <div class="panel-heading">Normalized phone</div>
+                    <div class="panel-body">
+                        <p>National: <% out.println(phone.getNational());%>  / International: <% out.println(phone.getInternational());%></p>
+                    </div>
                 </div>
             </div>
-
         </div>
 
 

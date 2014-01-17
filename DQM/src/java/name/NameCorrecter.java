@@ -1,6 +1,6 @@
 package name;
-
-import java.text.Normalizer;
+import adress.*;
+//import java.text.Normalizer;
 
 /*
  * To change this template, choose Tools | Templates
@@ -13,7 +13,20 @@ import java.text.Normalizer;
  */
 public class NameCorrecter {
     String name;
-   public void normalize(String name){
-       this.name = Normalizer.normalize(name, Normalizer.Form.NFD);
-   }
+    public NameCorrecter(String name){
+        this.name = Clean(name);
+    }
+
+    private String Clean(String name){
+         name = name.replaceAll("[\\s\\p{Punct}]"," ");
+         name = name.replaceAll("[0-9]","");
+         name = name.replaceAll("  ", " ");
+         name = StringOperation.sansAccent(name);
+         name = name.toUpperCase();
+         return name;
+     }
+    
+    public String getString(){
+        return this.name;
+    }
 }
