@@ -1,0 +1,18 @@
+<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCustomersWSDL" xmlns:tab="http://j2ee.netbeans.org/xsd/tableSchema">
+  <soapenv:Body>
+    <soap:soapCustomersWSDLOperation>
+      <customer>
+        <!--1 or more repetitions:-->
+        <tab:customers_Record>
+          <tab:id isNull="?false?" isDefaultColumn="?true?">1</tab:id>
+          <tab:firstname isNull="?true?" isDefaultColumn="?true?">?string?</tab:firstname>
+          <tab:lastname isNull="?true?" isDefaultColumn="?true?">?string?</tab:lastname>
+          <tab:genre_female isNull="?true?" isDefaultColumn="?false?">?false?</tab:genre_female>
+          <tab:birthday isNull="?false?" isDefaultColumn="?true?">?string?</tab:birthday>
+          <tab:email isNull="?true?" isDefaultColumn="?false?">?string?</tab:email>
+        </tab:customers_Record>
+      </customer>
+      <operation>delete</operation>
+    </soap:soapCustomersWSDLOperation>
+  </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,17 @@
+<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCountriesWSDL" xmlns:tab="http://j2ee.netbeans.org/xsd/tableSchema">
+  <soapenv:Body>
+    <soap:soapCountriesWSDLOperation>
+      <country>
+        <!--1 or more repetitions:-->
+        <tab:countries_Record>
+          <tab:iso isNull="?false?" isDefaultColumn="?true?">33</tab:iso>
+          <tab:name isNull="?true?" isDefaultColumn="?true?">France</tab:name>
+          <tab:printable_name isNull="?true?" isDefaultColumn="?true?">France</tab:printable_name>
+          <tab:iso3 isNull="?true?" isDefaultColumn="?false?">33</tab:iso3>
+          <tab:numcode isNull="?false?" isDefaultColumn="?false?">33</tab:numcode>
+        </tab:countries_Record>
+      </country>
+      <operation>insert</operation>
+    </soap:soapCountriesWSDLOperation>
+  </soapenv:Body>
+</soapenv:Envelope>

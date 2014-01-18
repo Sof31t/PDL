@@ -1,28 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/customersWSDL" xmlns:ns2="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCustomersWSDL" xmlns:ns3="http://enterprise.netbeans.org/bpel/DatabaseBC/databaseBC" xmlns:xlink="http://www.w3.org/2000/xlink">
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/customersWSDL" xmlns:ns2="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCustomersWSDL" xmlns:ns3="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/countriesWSDL" xmlns:ns4="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCountriesWSDL" xmlns:ns5="http://enterprise.netbeans.org/bpel/DatabaseBC/countriesBC" xmlns:ns6="http://enterprise.netbeans.org/bpel/DatabaseBC/databaseBC" xmlns:xlink="http://www.w3.org/2000/xlink">
     <endpoints>
         <endpoint endpoint-name="port" interface-name="ns1:jdbcPortType" name="endpoint1" service-name="ns1:service"/>
         <endpoint endpoint-name="soapCustomersWSDLPort" interface-name="ns2:soapCustomersWSDLPortType" name="endpoint2" service-name="ns2:soapCustomersWSDLService"/>
-        <endpoint display-name="soapCustomersPartnerLink" endpoint-name="soapCustomersWSDLRole_myRole" file-path="databaseBC.bpel" interface-name="ns2:soapCustomersWSDLPortType" name="endpoint3" process-name="databaseBC" service-name="ns3:soapCustomersPartnerLink"/>
-        <endpoint display-name="PartnerLinkCustomers" endpoint-name="jdbcPortTypeRole_partnerRole" file-path="databaseBC.bpel" interface-name="ns1:jdbcPortType" name="endpoint4" process-name="databaseBC" service-name="ns3:PartnerLinkCustomers"/>
+        <endpoint endpoint-name="port" interface-name="ns3:jdbcPortType" name="endpoint3" service-name="ns3:service"/>
+        <endpoint endpoint-name="soapCountriesWSDLPort" interface-name="ns4:soapCountriesWSDLPortType" name="endpoint4" service-name="ns4:soapCountriesWSDLService"/>
+        <endpoint display-name="soapCountriesPartnerLink" endpoint-name="soapCountriesWSDLRole_myRole" file-path="countriesBC.bpel" interface-name="ns4:soapCountriesWSDLPortType" name="endpoint5" process-name="countriesBC" service-name="ns5:soapCountriesPartnerLink"/>
+        <endpoint display-name="soapCustomersPartnerLink" endpoint-name="soapCustomersWSDLRole_myRole" file-path="customersBC.bpel" interface-name="ns2:soapCustomersWSDLPortType" name="endpoint6" process-name="databaseBC" service-name="ns6:soapCustomersPartnerLink"/>
+        <endpoint display-name="PartnerLinkCountries" endpoint-name="jdbcPortTypeRole_partnerRole" file-path="countriesBC.bpel" interface-name="ns3:jdbcPortType" name="endpoint7" process-name="countriesBC" service-name="ns5:PartnerLinkCountries"/>
+        <endpoint display-name="PartnerLinkCustomers" endpoint-name="jdbcPortTypeRole_partnerRole" file-path="customersBC.bpel" interface-name="ns1:jdbcPortType" name="endpoint8" process-name="databaseBC" service-name="ns6:PartnerLinkCustomers"/>
     </endpoints>
     <service-units>
         <service-engine-service-unit artifacts-zip="DatabaseBC.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="CompositeDBBC-DatabaseBC" unit-name="DatabaseBC" unknown="false" x="135" y="97">
-            <provides endpoint="endpoint3"/>
-            <consumes endpoint="endpoint4"/>
+            <provides endpoint="endpoint5"/>
+            <provides endpoint="endpoint6"/>
+            <consumes endpoint="endpoint7"/>
+            <consumes endpoint="endpoint8"/>
         </service-engine-service-unit>
         <binding-component-service-unit artifacts-zip="sun-database-binding.jar" component-name="sun-database-binding" description="Represents this Service Unit" name="CompositeDBBC-sun-database-binding" unit-name="sun-database-binding">
             <ports>
-                <port x="67" y="117">
+                <port state="deleted" x="67" y="117">
                     <link xlink:href="../jbiServiceUnits/DatabaseBC/customersWSDL.wsdl#xpointer(/definitions/service[@name='service']/port[@name='port'])" xlink:type="simple"/>
                     <consumes endpoint="endpoint1"/>
                     <provides endpoint="endpoint1"/>
+                </port>
+                <port x="67" y="117">
+                    <link xlink:href="../jbiServiceUnits/DatabaseBC/countriesWSDL.wsdl#xpointer(/definitions/service[@name='service']/port[@name='port'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint3"/>
+                    <provides endpoint="endpoint3"/>
                 </port>
             </ports>
         </binding-component-service-unit>
         <binding-component-service-unit artifacts-zip="sun-http-binding.jar" component-name="sun-http-binding" description="Represents this Service Unit" name="CompositeDBBC-sun-http-binding" unit-name="sun-http-binding">
             <ports>
                 <port x="67" y="37">
+                    <link xlink:href="../jbiServiceUnits/DatabaseBC/soapCountriesWSDL.wsdl#xpointer(/definitions/service[@name='soapCountriesWSDLService']/port[@name='soapCountriesWSDLPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint4"/>
+                    <provides endpoint="endpoint4"/>
+                </port>
+                <port state="deleted" x="67" y="37">
                     <link xlink:href="../jbiServiceUnits/DatabaseBC/soapCustomersWSDL.wsdl#xpointer(/definitions/service[@name='soapCustomersWSDLService']/port[@name='soapCustomersWSDLPort'])" xlink:type="simple"/>
                     <consumes endpoint="endpoint2"/>
                     <provides endpoint="endpoint2"/>
@@ -31,19 +47,27 @@
         </binding-component-service-unit>
     </service-units>
     <connections>
-        <connection consumer="endpoint4" provider="endpoint1" state="unchanged"/>
-        <connection consumer="endpoint2" provider="endpoint3" state="unchanged"/>
+        <connection consumer="endpoint7" provider="endpoint3" state="unchanged"/>
+        <connection consumer="endpoint8" provider="endpoint1" state="unchanged"/>
+        <connection consumer="endpoint2" provider="endpoint6" state="unchanged"/>
+        <connection consumer="endpoint4" provider="endpoint5" state="unchanged"/>
     </connections>
     <porttypes>
+        <link xlink:href="../jbiServiceUnits/DatabaseBC/soapCountriesWSDL.wsdl#xpointer(/definitions/portType[@name='soapCountriesWSDLPortType'])" xlink:type="simple"/>
         <link xlink:href="../jbiServiceUnits/DatabaseBC/customersWSDL.wsdl#xpointer(/definitions/portType[@name='jdbcPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/DatabaseBC/countriesWSDL.wsdl#xpointer(/definitions/portType[@name='jdbcPortType'])" xlink:type="simple"/>
         <link xlink:href="../jbiServiceUnits/DatabaseBC/soapCustomersWSDL.wsdl#xpointer(/definitions/portType[@name='soapCustomersWSDLPortType'])" xlink:type="simple"/>
     </porttypes>
     <bindings>
+        <link xlink:href="../jbiServiceUnits/DatabaseBC/soapCountriesWSDL.wsdl#xpointer(/definitions/binding[@name='soapCountriesWSDLBinding'])" xlink:type="simple"/>
         <link xlink:href="../jbiServiceUnits/DatabaseBC/customersWSDL.wsdl#xpointer(/definitions/binding[@name='binding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/DatabaseBC/countriesWSDL.wsdl#xpointer(/definitions/binding[@name='binding'])" xlink:type="simple"/>
         <link xlink:href="../jbiServiceUnits/DatabaseBC/soapCustomersWSDL.wsdl#xpointer(/definitions/binding[@name='soapCustomersWSDLBinding'])" xlink:type="simple"/>
     </bindings>
     <services>
+        <link xlink:href="../jbiServiceUnits/DatabaseBC/soapCountriesWSDL.wsdl#xpointer(/definitions/service[@name='soapCountriesWSDLService'])" xlink:type="simple"/>
         <link xlink:href="../jbiServiceUnits/DatabaseBC/customersWSDL.wsdl#xpointer(/definitions/service[@name='service'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/DatabaseBC/countriesWSDL.wsdl#xpointer(/definitions/service[@name='service'])" xlink:type="simple"/>
         <link xlink:href="../jbiServiceUnits/DatabaseBC/soapCustomersWSDL.wsdl#xpointer(/definitions/service[@name='soapCustomersWSDLService'])" xlink:type="simple"/>
     </services>
     <regions>
