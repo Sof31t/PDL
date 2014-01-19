@@ -26,16 +26,16 @@ public class TopicHandler {
     private Topic topic ;
 
     // constructor
-    public TopicHandler(String topicName) {
+    public TopicHandler(String topicName, TopicConnectionFactory tcf) {
         try {
             // creation of connection
-            if (myConnectionFactory == null){
+            if (tcf == null){
                 JMSException e = new JMSException("Null TopicConnectionFactory");
                 throw e ;
             }
             System.out.println("Initializing Connection creation");
             // creation of the connection
-            conn = myConnectionFactory.createTopicConnection(); 
+            conn = tcf.createTopicConnection(); 
             System.out.println("Connection created");
             // creation of session in the connection
             session = conn.createTopicSession(false, Session.AUTO_ACKNOWLEDGE); 

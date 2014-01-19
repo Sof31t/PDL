@@ -1,11 +1,18 @@
 package pubsub;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.annotation.Resource;
+import javax.jms.ConnectionFactory;
 import javax.jms.Topic;
 import javax.jms.TopicConnection;
+import javax.jms.TopicConnectionFactory;
 import javax.jms.TopicSession;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import pubsubclasses.PubSubManager;
 
 /**
@@ -17,10 +24,24 @@ public class PubSubWS {
     //public PubSubManager psm; // public for tests ONLY
     private PubSubManager psm;
     
+    @Resource (name="jms/TopicConnectionFactory")
+    private TopicConnectionFactory myConnectionFactory;
+    
+    private InitialContext context;
+    
     // The initialization method
     @WebMethod(operationName = "initEventManager")
     public void initEventManager () {
-        psm = new PubSubManager();
+        psm = new PubSubManager(myConnectionFactory);
+        /*try {
+            //To get to JNDI context
+            context = new InitialContext();
+           //To get a ConnectionFactory from JNDI
+            myConnectionFactory = (TopicConnectionFactory) context.lookup("ConnectionFactory");
+        } catch (NamingException ex) {
+            Logger.getLogger(PubSubWS.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+
     }
     
     // The message sending method. Called by the Proxy / Router.
@@ -35,7 +56,7 @@ public class PubSubWS {
         return psm.addTopic(topic);
     }
     
-    
+    /*
     // The 3 getters needed to get information to connect to a Topic
     // TopicConnection
     @WebMethod(operationName = "retrieveTopicConnection") 
@@ -51,5 +72,12 @@ public class PubSubWS {
     @WebMethod(operationName = "retrieveTopic") 
     public Topic retrieveTopic(@WebParam(name = "topicName") String topic) {
         return psm.getTopic(topic);
-    }  
+    }  */
+    
+    public PubSubManager getPSM() {
+        return this.psm;
+    }
+    public TopicConnectionFactory getTCF() {
+        return this.myConnectionFactory;
+    }
 }

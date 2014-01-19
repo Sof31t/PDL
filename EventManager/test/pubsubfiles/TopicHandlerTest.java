@@ -46,7 +46,7 @@ public class TopicHandlerTest {
     /**
      * Test of getTopic method, of class TopicHandler.
      */
-    @Test
+    /*@Test
     public void testGetTopicName() {
         System.out.println("getTopicName test init.");
         // Creation of the name of the topic we want to create
@@ -64,5 +64,5 @@ public class TopicHandlerTest {
         // In case of difference between the two results, printing an error message  showing the two Strings
         assertEquals("Error the two topic names are different. Expected : " + expResult + ", found : " + result,expResult, result);
         System.out.println("End of getTopicName test.");
-    }
+    }*/
 }

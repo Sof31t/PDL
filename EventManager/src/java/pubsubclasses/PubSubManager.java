@@ -7,6 +7,7 @@ package pubsubclasses;
 import java.util.HashMap;
 import javax.jms.Topic;
 import javax.jms.TopicConnection;
+import javax.jms.TopicConnectionFactory;
 import javax.jms.TopicSession;
 
 /**
@@ -18,9 +19,11 @@ public class PubSubManager {
     //private HashMap<TopicHandler,String> topicsByHandler;
     // The maps containing all the registered TopicHandler objects 
     private HashMap<String,TopicHandler> topicsByString;
+    private TopicConnectionFactory myConnectionFactory;
     
-    public PubSubManager () {
+    public PubSubManager (TopicConnectionFactory tcf) {
         topicsByString = new HashMap<String,TopicHandler>();
+        myConnectionFactory = tcf;
     }
         
     
@@ -69,7 +72,7 @@ public class PubSubManager {
     // @param name : topic name
     // @result : topic name to store 
     public String addTopic (String name) {
-        TopicHandler t = new TopicHandler(name);
+        TopicHandler t = new TopicHandler(name, myConnectionFactory);
         
         topicsByString.put(name, t);
         return name;
