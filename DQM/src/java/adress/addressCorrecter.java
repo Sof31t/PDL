@@ -10,15 +10,20 @@ package adress;
  */
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class addressCorrecter {
 
@@ -39,8 +44,11 @@ public class addressCorrecter {
         String fichier = "keyWords/all.txt";
 
         /*lecture du fichier texte   */
+
+        InputStream ips;
         try {
-            InputStream ips = new FileInputStream(fichier);
+            ips = new FileInputStream(fichier);
+
             InputStreamReader ipsr = new InputStreamReader(ips);
             BufferedReader br = new BufferedReader(ipsr);
             String ligne;
@@ -48,8 +56,10 @@ public class addressCorrecter {
                 stopList.add(ligne);
             }
             br.close();
-        } catch (Exception e) {
-            System.out.println(e.toString());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -104,8 +114,11 @@ public class addressCorrecter {
         String fichier = "keyWords/LCU.txt";
 
         /*lecture du fichier texte */
+
+        InputStream ips;
         try {
-            InputStream ips = new FileInputStream(fichier);
+            ips = new FileInputStream(fichier);
+
             InputStreamReader ipsr = new InputStreamReader(ips);
             BufferedReader br = new BufferedReader(ipsr);
             String ligne;
@@ -113,22 +126,26 @@ public class addressCorrecter {
                 list.add(ligne);
             }
             br.close();
-        } catch (Exception e) {
-            System.out.println(e.toString());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+
         String[] listAddress;
         listAddress = address.split(" ");
         for (String s : list) {
             for (int i = 0; i < listAddress.length; i++) {
 
 
-                if (s.toString().equals(listAddress[i].toString())) {
-                    LCU += listAddress[i].toString() + " ";
+                if (s.toString().equals(listAddress[i])) {
+                    LCU += listAddress[i] + " ";
                     for (int j = i + 1; j < listAddress.length; j++) {
-                        if (stopList.contains(listAddress[j].toString()) || StringOperation.isInt(listAddress[j].toString())) {
+                        if (stopList.contains(listAddress[j]) || StringOperation.isInt(listAddress[j])) {
                             break;
                         } else {
-                            LCU += listAddress[j].toString() + " ";
+                            LCU += listAddress[j] + " ";
                         }
                         i = j;
                     }
@@ -146,8 +163,11 @@ public class addressCorrecter {
         String fichier = "keyWords/LCOI.txt";
 
         /*lecture du fichier texte     */
+
+        InputStream ips;
         try {
-            InputStream ips = new FileInputStream(fichier);
+            ips = new FileInputStream(fichier);
+
             InputStreamReader ipsr = new InputStreamReader(ips);
             BufferedReader br = new BufferedReader(ipsr);
             String ligne;
@@ -155,8 +175,10 @@ public class addressCorrecter {
                 list.add(ligne);
             }
             br.close();
-        } catch (Exception e) {
-            System.out.println(e.toString());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
         }
         String[] listAddress;
         listAddress = address.split(" ");
@@ -164,13 +186,13 @@ public class addressCorrecter {
             for (int i = 0; i < listAddress.length; i++) {
 
 
-                if (s.toString().equals(listAddress[i].toString())) {
-                    LCOI += listAddress[i].toString() + " ";
+                if (s.toString().equals(listAddress[i])) {
+                    LCOI += listAddress[i] + " ";
                     for (int j = i + 1; j < listAddress.length; j++) {
-                        if (stopList.contains(listAddress[j].toString()) || StringOperation.isInt(listAddress[j].toString())) {
+                        if (stopList.contains(listAddress[j]) || StringOperation.isInt(listAddress[j])) {
                             break;
                         } else {
-                            LCOI += listAddress[j].toString() + " ";
+                            LCOI += listAddress[j] + " ";
                         }
                         i = j;
                     }
@@ -189,8 +211,11 @@ public class addressCorrecter {
         String fichier = "keyWords/CA.txt";
 
         /*lecture du fichier texte */
+
+        InputStream ips;
         try {
-            InputStream ips = new FileInputStream(fichier);
+            ips = new FileInputStream(fichier);
+
             InputStreamReader ipsr = new InputStreamReader(ips);
             BufferedReader br = new BufferedReader(ipsr);
             String ligne;
@@ -198,22 +223,24 @@ public class addressCorrecter {
                 list.add(ligne);
             }
             br.close();
-        } catch (Exception e) {
-            System.out.println(e.toString());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
         }
         String[] listAddress;
         listAddress = address.split(" ");
         for (String s : list) {
             for (int i = 0; i < listAddress.length; i++) {
 
-                if (s.toString().equals(listAddress[i].toString())) {
-                    CA += listAddress[i].toString() + " ";
-                    CA += listAddress[i + 1].toString() + " ";
+                if (s.toString().equals(listAddress[i])) {
+                    CA += listAddress[i] + " ";
+                    CA += listAddress[i + 1] + " ";
                     for (int j = i + 2; j < listAddress.length; j++) {
-                        if (stopList.contains(listAddress[j].toString()) || StringOperation.isInt(listAddress[j].toString())) {
+                        if (stopList.contains(listAddress[j]) || StringOperation.isInt(listAddress[j])) {
                             break;
                         } else {
-                            CA += listAddress[j].toString() + " ";
+                            CA += listAddress[j] + " ";
                         }
                         i = j;
                     }
@@ -232,8 +259,11 @@ public class addressCorrecter {
         String fichier = "keyWords/NomVoie.txt";
 
         /*lecture du fichier texte */
+
+        InputStream ips;
         try {
-            InputStream ips = new FileInputStream(fichier);
+            ips = new FileInputStream(fichier);
+
             InputStreamReader ipsr = new InputStreamReader(ips);
             BufferedReader br = new BufferedReader(ipsr);
             String ligne;
@@ -241,31 +271,33 @@ public class addressCorrecter {
                 list.add(ligne);
             }
             br.close();
-        } catch (Exception e) {
-            System.out.println(e.toString());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
         }
         String[] listAddress;
         listAddress = address.split(" ");
         for (String s : list) {
             for (int i = 0; i < listAddress.length; i++) {
-                if (s.toString().equals(listAddress[i].toString())) {
-                    if (StringOperation.isInt(listAddress[i - 1].toString())) {
-                        NV += listAddress[i - 1].toString() + " ";
+                if (s.toString().equals(listAddress[i])) {
+                    if (StringOperation.isInt(listAddress[i - 1])) {
+                        NV += listAddress[i - 1] + " ";
                         found = true;
                     }
-                    NV += listAddress[i].toString() + " ";
+                    NV += listAddress[i] + " ";
                     for (int j = i + 1; j < listAddress.length; j++) {
-                        if (stopList.contains(listAddress[j].toString()) || StringOperation.isInt(listAddress[j].toString())) {
+                        if (stopList.contains(listAddress[j]) || StringOperation.isInt(listAddress[j])) {
                             if (found) {
                                 break;
-                            } else if (StringOperation.isInt(listAddress[j].toString()) && listAddress[j].length() <= 4) {
-                                NV = listAddress[j].toString() + " " + NV;
+                            } else if (StringOperation.isInt(listAddress[j]) && listAddress[j].length() <= 4) {
+                                NV = listAddress[j] + " " + NV;
                                 found = true;
                             } else {
                                 break;
                             }
                         } else {
-                            NV += listAddress[j].toString() + " ";
+                            NV += listAddress[j] + " ";
                         }
                         i = j;
                     }
@@ -294,26 +326,26 @@ public class addressCorrecter {
 
             for (int i = 0; i < listAddress.length; i++) {
 
-                if (s.toString().equals(listAddress[i].toString())) {
+                if (s.toString().equals(listAddress[i])) {
 
-                    if (StringOperation.isInt(listAddress[i + 1].toString())) {
+                    if (StringOperation.isInt(listAddress[i + 1])) {
                         found = true;
                     }
-                    BP += listAddress[i].toString() + " ";
-                    BP += listAddress[i + 1].toString() + " ";
+                    BP += listAddress[i] + " ";
+                    BP += listAddress[i + 1] + " ";
 
                     for (int j = i + 2; j < listAddress.length; j++) {
-                        if (stopList.contains(listAddress[j].toString()) || StringOperation.isInt(listAddress[j].toString())) {
+                        if (stopList.contains(listAddress[j]) || StringOperation.isInt(listAddress[j])) {
                             if (found) {
                                 break;
-                            } else if (StringOperation.isInt(listAddress[j].toString()) && listAddress[j].length() <= 4) {
-                                BP += listAddress[j].toString() + " ";
+                            } else if (StringOperation.isInt(listAddress[j]) && listAddress[j].length() <= 4) {
+                                BP += listAddress[j] + " ";
                                 found = true;
                             } else {
                                 break;
                             }
                         } else {
-                            BP += listAddress[j].toString() + " ";
+                            BP += listAddress[j] + " ";
                         }
                         i = j;
                     }
@@ -334,11 +366,11 @@ public class addressCorrecter {
 
         for (int i = 0; i < listAddress.length; i++) {
 
-            if (StringOperation.isInt(listAddress[i].toString()) && listAddress[i].length() == 5) {
+            if (StringOperation.isInt(listAddress[i]) && listAddress[i].length() == 5) {
 
                 found = true;
 
-                CP += listAddress[i].toString() + " ";
+                CP += listAddress[i] + " ";
                 break;
             }
 
@@ -390,18 +422,18 @@ public class addressCorrecter {
 
         for (int i = 0; i < listAddress.length; i++) {
 
-            if (listAddress[i].toString().equals("CEDEX")) {
+            if (listAddress[i].equals("CEDEX")) {
 
                 found = true;
-                cedex += listAddress[i].toString() + " ";
+                cedex += listAddress[i] + " ";
 
                 if (i == listAddress.length - 1) {
                     break;
                 } else {
                     for (int j = i + 1; j < listAddress.length; j++) {
 
-                        if (!stopList.contains(listAddress[j].toString()) && !(StringOperation.isInt(listAddress[j].toString()) && listAddress[j].length() == 5)) {
-                            cedex += listAddress[j].toString() + " ";
+                        if (!stopList.contains(listAddress[j]) && !(StringOperation.isInt(listAddress[j]) && listAddress[j].length() == 5)) {
+                            cedex += listAddress[j] + " ";
                         } else {
                             break;
                         }
@@ -430,6 +462,7 @@ public class addressCorrecter {
         String ville = null;
         try {
             Class.forName(driver).newInstance();
+
             Connection conn = DriverManager.getConnection(url + dbName, userName, password);
             Statement st = conn.createStatement();
             String Query = "SELECT Commune FROM annuaire WHERE Codepos LIKE '" + CP + "'";
@@ -438,10 +471,16 @@ public class addressCorrecter {
                 ville = res.getString("Commune");
             }
             conn.close();
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         return ville;
     }
 
@@ -464,8 +503,14 @@ public class addressCorrecter {
                 CP = res.getString("Codepos");
             }
             conn.close();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(addressCorrecter.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return CP;
