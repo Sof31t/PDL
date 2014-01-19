@@ -4,7 +4,6 @@
  */
 package phone;
 
-import adress.StringOperation;
 import java.util.ArrayList;
 
 /**
@@ -12,58 +11,64 @@ import java.util.ArrayList;
  * @author sofiene
  */
 public class PhoneCorrecter {
+
     String national;
     String international;
     ArrayList<String> internationalIndicatives = new ArrayList<String>();
     ArrayList<String> internationalCountries = new ArrayList<String>();
-    
-    public PhoneCorrecter(String phone){
+
+    public PhoneCorrecter(String phone) {
         int i = 0;
         int j = 0;
         boolean country_found = false;
-        
+
         InitIndicatives();
         phone = Clean(phone);
-        while (i<4 && !country_found){
+        while (i < 4 && !country_found) {
             i++;
-            while (j<internationalIndicatives.size() && !country_found){
-                if ( phone.substring(0,i+1).equals(internationalIndicatives.get(j))){
+            while (j < internationalIndicatives.size() && !country_found) {
+                if (phone.substring(0, i + 1).equals(internationalIndicatives.get(j))) {
                     this.international = internationalCountries.get(j);
                     country_found = true;
                 }
                 j++;
             }
         }
-        
-        this.national = phone.substring(i+1,phone.length());
+
+        this.national = phone.substring(i + 1, phone.length());
         if (!country_found) {
             this.national = "Donnée incorrecte";
-        }else{
-            if (this.international.equals("France")){
+        } else {
+            if (this.international.equals("France")) {
                 this.national = "0" + this.national;
-                if (this.national.length() != 10){
+                if (this.national.length() != 10) {
                     this.national = "Donnée incorrecte";
-                }else{
-                    this.national = this.national.substring(0,2) + "." + this.national.substring(2,4)+ "." + this.national.substring(4,6)+ "." + this.national.substring(6,8)+ "." + this.national.substring(8,10);
-                
+                } else {
+                    this.national = this.national.substring(0, 2) + "." + this.national.substring(2, 4) + "." + this.national.substring(4, 6) + "." + this.national.substring(6, 8) + "." + this.national.substring(8, 10);
+
                 }
             }
         }
     }
-    
-    private String Clean(String phone){
-         phone = phone.replaceAll("[^0-9]","");
-         return phone;
-     }
-    
-    public String getNational(){
+    /* cleaning a phone number */
+
+    private String Clean(String phone) {
+        phone = phone.replaceAll("[^0-9]", "");
+        return phone;
+    }
+    /* retrieve the national id of the number */
+
+    public String getNational() {
         return this.national;
     }
-    public String getInternational(){
+    /* retrieve the international id of the number */
+
+    public String getInternational() {
         return this.international;
     }
-    
-    private void InitIndicatives(){
+    /* initialize the international indicatives */
+
+    private void InitIndicatives() {
         internationalIndicatives.add("244");
         internationalCountries.add("Angola");
         internationalIndicatives.add("33");

@@ -11,19 +11,17 @@ import name.NameCorrecter;
 
 /**
  *
- * @author sofiene
+ * @author sofiene & remy
  */
 @WebService(serviceName = "CorrectCustomer")
 public class CorrectCustomer {
-
-
 
     /**
      * Web service operation
      */
     @WebMethod(operationName = "CorrectName")
     public String CorrectName(@WebParam(name = "name") String name) {
-        //TODO write your implementation code here:
+        /* creation of NameCorrecter */
         NameCorrecter Name = new NameCorrecter(name);
         return Name.getString();
     }
