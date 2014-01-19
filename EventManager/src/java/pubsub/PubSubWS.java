@@ -24,6 +24,7 @@ public class PubSubWS {
     //public PubSubManager psm; // public for tests ONLY
     private PubSubManager psm;
     
+    // The JMS resource
     @Resource (name="jms/TopicConnectionFactory")
     private TopicConnectionFactory myConnectionFactory;
     
@@ -33,15 +34,6 @@ public class PubSubWS {
     @WebMethod(operationName = "initEventManager")
     public void initEventManager () {
         psm = new PubSubManager(myConnectionFactory);
-        /*try {
-            //To get to JNDI context
-            context = new InitialContext();
-           //To get a ConnectionFactory from JNDI
-            myConnectionFactory = (TopicConnectionFactory) context.lookup("ConnectionFactory");
-        } catch (NamingException ex) {
-            Logger.getLogger(PubSubWS.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-
     }
     
     // The message sending method. Called by the Proxy / Router.
