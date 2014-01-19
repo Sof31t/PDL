@@ -16,8 +16,8 @@ import javax.jms.TopicSession;
  */
 public class PubSubManager {
     
-    //private HashMap<TopicHandler,String> topicsByHandler;
-    // The maps containing all the registered TopicHandler objects 
+    /* private HashMap<TopicHandler,String> topicsByHandler; */
+    /* The maps containing all the registered TopicHandler objects */
     private HashMap<String,TopicHandler> topicsByString;
     private TopicConnectionFactory myConnectionFactory;
     
@@ -27,50 +27,55 @@ public class PubSubManager {
     }
         
     
-    // get Topic Connection
-    // @param t : topic name
-    // @result : TopicConnection wanted
+    /** getTopic Connection
+    * @param t : topic name
+    * @result : TopicConnection wanted
+    * */
     public TopicConnection getTopicConnection (String t){
         TopicConnection tc = null;
-        // if in map
+        /* if in map */
         if (existsInTopicsByString(t)) { 
             tc = topicsByString.get(t).getConnection();
         }
         return tc;
     }
-    // get TopicSession
-    // @param t : topic name
-    // @result : TopicSession wanted
+    /** getTopicSession
+    * @param t : topic name
+    * @result : TopicSession wanted
+    * */
     public TopicSession getTopicSession (String t){
         TopicSession tc = null;
-        // if in map
+        /* if in map*/
         if (existsInTopicsByString(t)) { 
             tc = topicsByString.get(t).getSession();
         }
         return tc;
     }
-    // get Topic
-    // @param t : topic name
-    // @result : Topic wanted
+    /** getTopic
+    * @param t : topic name
+    * @result : Topic wanted
+    */
     public Topic getTopic (String t){
         Topic tc = null;
-        // if in map
+        /* if in map*/
         if (existsInTopicsByString(t)) { 
             tc = topicsByString.get(t).getTopic();
         }
         return tc;
     }
     
-    // checks if the topic has already been registered.
-    // @param t : topic name
-    // @result : true if exists in map, false otherwise
+    /** checks if the topic has already been registered.
+    * @param t : topic name
+    * @result : true if exists in map, false otherwise
+    */
     public boolean existsInTopicsByString(String t){
         return topicsByString.containsKey(t);
     }
     
-    // adds a topic to the list of registered topics
-    // @param name : topic name
-    // @result : topic name to store 
+    /** adds a topic to the list of registered topics
+    * @param name : topic name
+    * @result : topic name to store 
+    * */
     public String addTopic (String name) {
         TopicHandler t = new TopicHandler(name, myConnectionFactory);
         
@@ -78,20 +83,21 @@ public class PubSubManager {
         return name;
     }
     
-    // send a message 
-    // @param topic : topic name 
-    // @param txt : content of the message to send
-    public void send (String topic, String txt) throws Error {
+    /** send a message 
+    * @param topic : topic name 
+    * @param txt : content of the message to send
+    */
+    public void send (String topic, String txt) throws Exception {
         if (existsInTopicsByString(topic)){
-        // retrieving the TopicHandler
+        /* retrieving the TopicHandler*/
         TopicHandler th = topicsByString.get(topic);        
-        // retrieving both the session and the topic to create a temporary publisher
+        /* retrieving both the session and the topic to create a temporary publisher*/
         TopPublisher tp = new TopPublisher(th.getConnection(),th.getSession(),th.getTopic());
-        // publishing the JMS message
+        /* publishing the JMS message*/
         tp.publishMsg(txt);
         } else {
-            // throw of an error
-            throw new Error("Error : Topic to send to does not exist. Use addTopic fist");
+            /* throw of an exception*/
+            throw new Exception("Error : Topic to send to does not exist. Use addTopic fist");
         }
     }
     
