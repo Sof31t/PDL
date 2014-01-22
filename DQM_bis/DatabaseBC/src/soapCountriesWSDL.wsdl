@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="soapCountriesWSDL" targetNamespace="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCountriesWSDL"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCountriesWSDL" xmlns:ns="http://j2ee.netbeans.org/xsd/tableSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema targetNamespace="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCountriesWSDL">
+            <xsd:import namespace="http://j2ee.netbeans.org/xsd/tableSchema" schemaLocation="countries.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="soapCountriesWSDLOperationRequest">
+        <part name="country" type="ns:countries"/>
+        <part name="operation" type="xsd:string"/>
+    </message>
+    <message name="soapCountriesWSDLOperationResponse">
+        <part name="countryResp" type="ns:countries"/>
+    </message>
+    <message name="soapCountriesWSDLOperationFault">
+        <part name="error" type="xsd:string"/>
+    </message>
+    <portType name="soapCountriesWSDLPortType">
+        <operation name="soapCountriesWSDLOperation">
+            <input name="input1" message="tns:soapCountriesWSDLOperationRequest"/>
+            <output name="output1" message="tns:soapCountriesWSDLOperationResponse"/>
+            <fault name="fault1" message="tns:soapCountriesWSDLOperationFault"/>
+        </operation>
+    </portType>
+    <binding name="soapCountriesWSDLBinding" type="tns:soapCountriesWSDLPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="soapCountriesWSDLOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCountriesWSDL"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCountriesWSDL"/>
+            </output>
+            <fault name="fault1">
+                <soap:fault name="fault1" use="literal" namespace="http://j2ee.netbeans.org/wsdl/DatabaseBC/src/soapCountriesWSDL"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="soapCountriesWSDLService">
+        <port name="soapCountriesWSDLPort" binding="tns:soapCountriesWSDLBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/soapCountriesWSDLService/soapCountriesWSDLPort"/>
+        </port>
+    </service>
+</definitions>

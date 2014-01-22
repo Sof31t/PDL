@@ -1,0 +1,42 @@
+<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:new="newEventBonAchat_iep">
+  <soapenv:Body>
+    <new:RecordsBatch_MsgObj>
+      <!--Zero or more repetitions:-->
+      <Records_MsgObj>
+        <Id>1</Id>
+        <Name>wang</Name>
+        <Email>wang@hotmail.com</Email>
+        <Achat>Mac</Achat>
+        <Shop>Presta</Shop>
+      </Records_MsgObj>
+      <Records_MsgObj>
+        <Id>2</Id>
+        <Name>tang</Name>
+        <Email>tang@hotmail.com</Email>
+        <Achat>Note</Achat>
+        <Shop>TableOn</Shop>
+      </Records_MsgObj>
+      <Records_MsgObj>
+        <Id>102</Id>
+        <Name>Gang</Name>
+        <Email>Gang@hotmail.com</Email>
+        <Achat>Note</Achat>
+        <Shop>TableOn</Shop>
+      </Records_MsgObj>
+      <Records_MsgObj>
+        <Id>102</Id>
+        <Name>Xang</Name>
+        <Email>Xang@hotmail.com</Email>
+        <Achat>Note</Achat>
+        <Shop>Presta</Shop>
+      </Records_MsgObj>
+      <Records_MsgObj>
+        <Id>102</Id>
+        <Name>Xang</Name>
+        <Email>Xang@hotmail.com</Email>
+        <Achat>Note</Achat>
+        <Shop>ChezDondon</Shop>
+      </Records_MsgObj>
+    </new:RecordsBatch_MsgObj>
+  </soapenv:Body>
+</soapenv:Envelope>

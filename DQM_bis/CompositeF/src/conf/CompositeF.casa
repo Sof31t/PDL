@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="PrestaTable_iep" xmlns:xlink="http://www.w3.org/2000/xlink">
+    <endpoints>
+        <endpoint endpoint-name="OutputPort_Presta" interface-name="ns1:OutputPt_Presta" name="endpoint1" service-name="ns1:OutputService_Presta"/>
+        <endpoint endpoint-name="OutputPort_TableOnLine" interface-name="ns1:OutputPt_TableOnLine" name="endpoint2" service-name="ns1:OutputService_TableOnLine"/>
+        <endpoint endpoint-name="InputPort" interface-name="ns1:InputPt" name="endpoint3" service-name="ns1:InputService"/>
+        <endpoint display-name="InputRn" endpoint-name="InputRn" file-path="PrestaTable.iep" interface-name="ns1:InputPt" name="endpoint4" process-name="PrestaTable" service-name="ns1:InputPl"/>
+        <endpoint display-name="OutputRn_Presta" endpoint-name="OutputRn_Presta" file-path="PrestaTable.iep" interface-name="ns1:OutputPt_Presta" name="endpoint5" process-name="PrestaTable" service-name="ns1:OutputPl_Presta"/>
+        <endpoint display-name="OutputRn_TableOnLine" endpoint-name="OutputRn_TableOnLine" file-path="PrestaTable.iep" interface-name="ns1:OutputPt_TableOnLine" name="endpoint6" process-name="PrestaTable" service-name="ns1:OutputPl_TableOnLine"/>
+    </endpoints>
+    <service-units>
+        <service-engine-service-unit artifacts-zip="IepModulePresta_TableOnline.jar" component-name="sun-iep-engine" defined="true" description="This Represents the IEP Service Unit" internal="true" name="CompositeF-IepModulePresta_TableOnline" unit-name="IepModulePresta_TableOnline" unknown="false" x="88" y="97">
+            <provides endpoint="endpoint4"/>
+            <consumes endpoint="endpoint5"/>
+            <consumes endpoint="endpoint6"/>
+        </service-engine-service-unit>
+        <binding-component-service-unit artifacts-zip="sun-file-binding.jar" component-name="sun-file-binding" description="Represents this Service Unit" name="CompositeF-sun-file-binding" unit-name="sun-file-binding">
+            <ports>
+                <port x="67" y="194">
+                    <link xlink:href="../jbiServiceUnits/IepModulePresta_TableOnline/PrestaTable.wsdl#xpointer(/definitions/service[@name='OutputService_Presta']/port[@name='OutputPort_Presta'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint1"/>
+                    <provides endpoint="endpoint1"/>
+                </port>
+                <port x="67" y="117">
+                    <link xlink:href="../jbiServiceUnits/IepModulePresta_TableOnline/PrestaTable.wsdl#xpointer(/definitions/service[@name='OutputService_TableOnLine']/port[@name='OutputPort_TableOnLine'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint2"/>
+                    <provides endpoint="endpoint2"/>
+                </port>
+            </ports>
+        </binding-component-service-unit>
+        <binding-component-service-unit artifacts-zip="sun-http-binding.jar" component-name="sun-http-binding" description="Represents this Service Unit" name="CompositeF-sun-http-binding" unit-name="sun-http-binding">
+            <ports>
+                <port x="67" y="37">
+                    <link xlink:href="../jbiServiceUnits/IepModulePresta_TableOnline/PrestaTable.wsdl#xpointer(/definitions/service[@name='InputService']/port[@name='InputPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint3"/>
+                    <provides endpoint="endpoint3"/>
+                </port>
+            </ports>
+        </binding-component-service-unit>
+    </service-units>
+    <connections>
+        <connection consumer="endpoint5" provider="endpoint1" state="unchanged"/>
+        <connection consumer="endpoint6" provider="endpoint2" state="unchanged"/>
+        <connection consumer="endpoint3" provider="endpoint4" state="unchanged"/>
+    </connections>
+    <porttypes>
+        <link xlink:href="../jbiServiceUnits/IepModulePresta_TableOnline/PrestaTable.wsdl#xpointer(/definitions/portType[@name='InputPt'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/IepModulePresta_TableOnline/PrestaTable.wsdl#xpointer(/definitions/portType[@name='OutputPt_Presta'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/IepModulePresta_TableOnline/PrestaTable.wsdl#xpointer(/definitions/portType[@name='OutputPt_TableOnLine'])" xlink:type="simple"/>
+    </porttypes>
+    <bindings>
+        <link xlink:href="../jbiServiceUnits/IepModulePresta_TableOnline/PrestaTable.wsdl#xpointer(/definitions/binding[@name='InputBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/IepModulePresta_TableOnline/PrestaTable.wsdl#xpointer(/definitions/binding[@name='OutputBinding_Presta'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/IepModulePresta_TableOnline/PrestaTable.wsdl#xpointer(/definitions/binding[@name='OutputBinding_TableOnLine'])" xlink:type="simple"/>
+    </bindings>
+    <services>
+        <link xlink:href="../jbiServiceUnits/IepModulePresta_TableOnline/PrestaTable.wsdl#xpointer(/definitions/service[@name='InputService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/IepModulePresta_TableOnline/PrestaTable.wsdl#xpointer(/definitions/service[@name='OutputService_Presta'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/IepModulePresta_TableOnline/PrestaTable.wsdl#xpointer(/definitions/service[@name='OutputService_TableOnLine'])" xlink:type="simple"/>
+    </services>
+    <regions>
+        <region name="WSDL Endpoints" width="150"/>
+        <region name="JBI Modules" width="500"/>
+        <region name="External Modules" width="200"/>
+    </regions>
+</casa>
