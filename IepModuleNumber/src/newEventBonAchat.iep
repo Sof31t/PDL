@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="newEventBonAchat" title="Plan" type="/IEP/Model/Plan" xmlns="http://jbi.com.sun/iep" packageName="">
+    <property name="version" value="1.0"/>
+    <component name="Metadata" title="Metadata" type="/IEP/Model/Plan|Metadata">
+        <component name="View" title="View" type="/IEP/Model/Plan|Metadata|View">
+            <property name="orthoflow" value="false"/>
+        </component>
+    </component>
+    <component name="Schemas" title="Schemas" type="/IEP/Model/Plan|Schemas">
+        <component type="/IEP/Metadata/Schema" name="RecordsOut" title="RecordsOut">
+            <component type="/IEP/Metadata/ColumnMetadata" name="Id" title="Id">
+                <property name="name" value="Id"/>
+                <property name="type" value="INTEGER"/>
+                <property name="size" value=""/>
+                <property name="scale" value=""/>
+                <property name="comment" value=""/>
+            </component>
+            <component type="/IEP/Metadata/ColumnMetadata" name="Name" title="Name">
+                <property name="name" value="Name"/>
+                <property name="type" value="VARCHAR"/>
+                <property name="size" value="100"/>
+                <property name="scale" value=""/>
+                <property name="comment" value=""/>
+            </component>
+            <component type="/IEP/Metadata/ColumnMetadata" name="Email" title="Email">
+                <property name="name" value="Email"/>
+                <property name="type" value="VARCHAR"/>
+                <property name="size" value="100"/>
+                <property name="scale" value=""/>
+                <property name="comment" value=""/>
+            </component>
+            <component type="/IEP/Metadata/ColumnMetadata" name="Achat" title="Achat">
+                <property name="name" value="Achat"/>
+                <property name="type" value="VARCHAR"/>
+                <property name="size" value="100"/>
+                <property name="scale" value=""/>
+                <property name="comment" value=""/>
+            </component>
+            <component type="/IEP/Metadata/ColumnMetadata" name="Shop" title="Shop">
+                <property name="name" value="Shop"/>
+                <property name="type" value="VARCHAR"/>
+                <property name="size" value="100"/>
+                <property name="scale" value=""/>
+                <property name="comment" value=""/>
+            </component>
+        </component>
+        <component type="/IEP/Metadata/Schema" name="AggPrestaOut" title="AggPrestaOut">
+            <component type="/IEP/Metadata/ColumnMetadata" name="Email" title="Email">
+                <property name="name" value="Email"/>
+                <property name="type" value="VARCHAR"/>
+                <property name="size" value="100"/>
+                <property name="scale" value=""/>
+                <property name="comment" value=""/>
+            </component>
+        </component>
+        <component type="/IEP/Metadata/Schema" name="AggTableOut" title="AggTableOut">
+            <component type="/IEP/Metadata/ColumnMetadata" name="Email" title="Email">
+                <property name="name" value="Email"/>
+                <property name="type" value="VARCHAR"/>
+                <property name="size" value="100"/>
+                <property name="scale" value=""/>
+                <property name="comment" value=""/>
+            </component>
+        </component>
+    </component>
+    <component name="Operators" title="Operators" type="/IEP/Model/Plan|Operators">
+        <component type="/IEP/Input/StreamInput" name="o0" title="o0">
+            <property name="x" value="59"/>
+            <property name="y" value="119"/>
+            <property name="z" value="0"/>
+            <property name="name" value="Records"/>
+            <property name="id" value="o0"/>
+            <property name="inputSchemaIdList" value=""/>
+            <property name="outputSchemaId" value="RecordsOut"/>
+            <property name="description" value=""/>
+            <property name="topoScore" value="0"/>
+            <property name="inputIdList" value=""/>
+            <property name="staticInputIdList" value=""/>
+            <property name="isGlobal" value="false"/>
+            <property name="globalId" value=""/>
+            <property name="batchMode" value="false"/>
+        </component>
+        <component type="/IEP/Operator/TimeBasedAggregator" name="o1" title="o1">
+            <property name="x" value="143"/>
+            <property name="y" value="199"/>
+            <property name="z" value="0"/>
+            <property name="name" value="AggTable"/>
+            <property name="id" value="o1"/>
+            <property name="inputSchemaIdList" value="RecordsOut"/>
+            <property name="outputSchemaId" value="AggTableOut"/>
+            <property name="description" value=""/>
+            <property name="topoScore" value="1"/>
+            <property name="inputIdList" value="o0"/>
+            <property name="staticInputIdList" value=""/>
+            <property name="isGlobal" value="false"/>
+            <property name="globalId" value=""/>
+            <property name="batchMode" value="false"/>
+            <property name="fromColumnList" value="Records.Email"/>
+            <property name="toColumnList" value="Email"/>
+            <property name="groupByColumnList" value="Records.Email"/>
+            <property name="fromClause" value="Records"/>
+            <property name="whereClause" value="Records.Shop = &apos;TableOn&apos; AND Records.Id&lt;100 AND Records.Email != &apos;&apos;"/>
+            <property name="start" value="1970-01-01 00:00:00.000-0000"/>
+            <property name="increment" value="1"/>
+            <property name="incrementUnit" value="second"/>
+            <property name="size" value="1"/>
+            <property name="unit" value="second"/>
+        </component>
+        <component type="/IEP/Operator/TimeBasedAggregator" name="o2" title="o2">
+            <property name="x" value="142"/>
+            <property name="y" value="79"/>
+            <property name="z" value="0"/>
+            <property name="name" value="AggPresta"/>
+            <property name="id" value="o2"/>
+            <property name="inputSchemaIdList" value="RecordsOut"/>
+            <property name="outputSchemaId" value="AggPrestaOut"/>
+            <property name="description" value=""/>
+            <property name="topoScore" value="1"/>
+            <property name="inputIdList" value="o0"/>
+            <property name="staticInputIdList" value=""/>
+            <property name="isGlobal" value="false"/>
+            <property name="globalId" value=""/>
+            <property name="batchMode" value="false"/>
+            <property name="fromColumnList" value="Records.Email"/>
+            <property name="toColumnList" value="Email"/>
+            <property name="groupByColumnList" value="Records.Email"/>
+            <property name="fromClause" value="Records"/>
+            <property name="whereClause" value="Records.Shop = &apos;Presta&apos; AND Records.Id &lt; 100 AND Records.Email != &apos;&apos;"/>
+            <property name="start" value="1970-01-01 00:00:00.000-0000"/>
+            <property name="increment" value="1"/>
+            <property name="incrementUnit" value="second"/>
+            <property name="size" value="1"/>
+            <property name="unit" value="second"/>
+        </component>
+        <component type="/IEP/Output/StreamOutput" name="o3" title="o3">
+            <property name="x" value="280"/>
+            <property name="y" value="77"/>
+            <property name="z" value="0"/>
+            <property name="name" value="Presta"/>
+            <property name="id" value="o3"/>
+            <property name="inputSchemaIdList" value="AggPrestaOut"/>
+            <property name="outputSchemaId" value="AggPrestaOut"/>
+            <property name="description" value=""/>
+            <property name="topoScore" value="2"/>
+            <property name="inputIdList" value="o2"/>
+            <property name="staticInputIdList" value=""/>
+            <property name="isGlobal" value="false"/>
+            <property name="globalId" value=""/>
+            <property name="batchMode" value="false"/>
+            <property name="includeTimestamp" value="false"/>
+        </component>
+        <component type="/IEP/Output/StreamOutput" name="o4" title="o4">
+            <property name="x" value="270"/>
+            <property name="y" value="198"/>
+            <property name="z" value="0"/>
+            <property name="name" value="TableOn"/>
+            <property name="id" value="o4"/>
+            <property name="inputSchemaIdList" value="AggTableOut"/>
+            <property name="outputSchemaId" value="AggTableOut"/>
+            <property name="description" value=""/>
+            <property name="topoScore" value="2"/>
+            <property name="inputIdList" value="o1"/>
+            <property name="staticInputIdList" value=""/>
+            <property name="isGlobal" value="false"/>
+            <property name="globalId" value=""/>
+            <property name="batchMode" value="false"/>
+            <property name="includeTimestamp" value="false"/>
+        </component>
+    </component>
+    <component name="Links" title="Links" type="/IEP/Model/Plan|Links">
+        <component type="/IEP/Model/Link" name="link0" title="link0">
+            <property name="name" value=""/>
+            <property name="from" value="o0"/>
+            <property name="to" value="o2"/>
+        </component>
+        <component type="/IEP/Model/Link" name="link1" title="link1">
+            <property name="name" value=""/>
+            <property name="from" value="o0"/>
+            <property name="to" value="o1"/>
+        </component>
+        <component type="/IEP/Model/Link" name="link2" title="link2">
+            <property name="name" value=""/>
+            <property name="from" value="o2"/>
+            <property name="to" value="o3"/>
+        </component>
+        <component type="/IEP/Model/Link" name="link3" title="link3">
+            <property name="name" value=""/>
+            <property name="from" value="o1"/>
+            <property name="to" value="o4"/>
+        </component>
+    </component>
+</component>

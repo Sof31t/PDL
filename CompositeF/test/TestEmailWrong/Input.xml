@@ -1,0 +1,42 @@
+<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pres="PrestaTable_iep">
+  <soapenv:Body>
+    <pres:RecordsBatch_MsgObj>
+      <!--Zero or more repetitions:-->
+      <Records_MsgObj>
+        <Name>TANG</Name>
+        <Email></Email>
+        <Product>McDonle</Product>
+        <Shop>Presta</Shop>
+      </Records_MsgObj>
+      <Records_MsgObj>
+        <Name>TANG</Name>
+        <Email></Email>
+        <Product>McDonle</Product>
+        <Shop>Presta</Shop>
+      </Records_MsgObj><Records_MsgObj>
+        <Name>TANG</Name>
+        <Email></Email>
+        <Product>McDonle</Product>
+        <Shop>Presta</Shop>
+      </Records_MsgObj>
+      <Records_MsgObj>
+        <Name>TANG</Name>
+        <Email></Email>
+        <Product>McDonle</Product>
+        <Shop>TableOn</Shop>
+      </Records_MsgObj>
+      <Records_MsgObj>
+        <Name>TANG</Name>
+        <Email></Email>
+        <Product>McDonle</Product>
+        <Shop>TableOn</Shop>
+      </Records_MsgObj>
+      <Records_MsgObj>
+        <Name>TANG</Name>
+        <Email></Email>
+        <Product>McDonle</Product>
+        <Shop>TableOn</Shop>
+      </Records_MsgObj>
+    </pres:RecordsBatch_MsgObj>
+  </soapenv:Body>
+</soapenv:Envelope>

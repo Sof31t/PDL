@@ -1,0 +1,185 @@
+<definitions targetNamespace="PrestaTable_iep"
+             xmlns:tns="PrestaTable_iep"
+             xmlns:typens="PrestaTable_iep"
+             xmlns:defns="PrestaTable_iep"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:file="http://schemas.sun.com/jbi/wsdl-extensions/file/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/">
+<types>
+    <xsd:schema targetNamespace="PrestaTable_iep" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <xsd:element name="Records_MsgObj">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="Name" type="xsd:string"/>
+                    <xsd:element name="Email" type="xsd:string"/>
+                    <xsd:element name="Product" type="xsd:string"/>
+                    <xsd:element name="Shop" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="RecordsBatch_MsgObj">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="Records_MsgObj" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                    <xsd:element name="Name" type="xsd:string"/>
+                    <xsd:element name="Email" type="xsd:string"/>
+                    <xsd:element name="Product" type="xsd:string"/>
+                    <xsd:element name="Shop" type="xsd:string"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Presta_MsgObj">
+            <xsd:complexType>
+                <xsd:sequence>
+                   <xsd:element name="Email" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="TableOnLine_MsgObj">
+            <xsd:complexType>
+                <xsd:sequence>
+                   <xsd:element name="Email" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+</types>
+
+<message name="Records_Msg">
+    <part name="input" element="typens:Records_MsgObj"/>
+</message>
+<message name="RecordsBatch_Msg">
+    <part name="input" element="typens:RecordsBatch_MsgObj"/>
+</message>
+<message name="Presta_Msg">
+    <part name="output" element="typens:Presta_MsgObj"/>
+</message>
+<message name="TableOnLine_Msg">
+    <part name="output" element="typens:TableOnLine_MsgObj"/>
+</message>
+
+<portType name="InputPt">
+    <operation name="Records">
+        <input message="tns:Records_Msg"/>
+    </operation>
+    <operation name="RecordsBatch">
+        <input message="tns:RecordsBatch_Msg"/>
+    </operation>
+</portType>
+<portType name="OutputPt_Presta">
+    <operation name="Presta">
+        <input message="tns:Presta_Msg"/>
+    </operation>
+</portType>
+<portType name="OutputPt_TableOnLine">
+    <operation name="TableOnLine">
+        <input message="tns:TableOnLine_Msg"/>
+    </operation>
+</portType>
+
+<plnk:partnerLinkType name="InputPlt" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype">
+    <plnk:role name = "InputRn" portType="tns:InputPt"/>
+</plnk:partnerLinkType>
+<plnk:partnerLinkType name="OutputPlt_Presta" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype">
+    <plnk:role name = "OutputRn_Presta" portType="tns:OutputPt_Presta"/>
+</plnk:partnerLinkType>
+<plnk:partnerLinkType name="OutputPlt_TableOnLine" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype">
+    <plnk:role name = "OutputRn_TableOnLine" portType="tns:OutputPt_TableOnLine"/>
+</plnk:partnerLinkType>
+<!-- input binding -->
+<binding name="InputBinding" type="defns:InputPt">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Records">
+        <soap:operation soapAction="Records"/>
+        <input>
+            <soap:body use="literal"/>
+        </input>
+    </operation>
+    <operation name="RecordsBatch">
+        <soap:operation soapAction="RecordsBatch"/>
+        <input>
+            <soap:body use="literal"/>
+        </input>
+    </operation>
+</binding>
+<!-- input service -->
+<service name="InputService">
+    <port name="InputPort" binding="tns:InputBinding">
+        <soap:address location="http://localhost:12100/service/PrestaTable_iep"/>
+    </port>
+</service>
+
+<!-- http output binding and service
+<binding name="OutputBinding_Presta" type="defns:OutputPt_Presta">
+    <operation name="Presta">
+        <soap:operation soapAction="Presta"/>
+        <input>
+            <soap:body use="literal"/>
+        </input>
+    </operation>
+</binding>
+<binding name="OutputBinding_TableOnLine" type="defns:OutputPt_TableOnLine">
+    <operation name="TableOnLine">
+        <soap:operation soapAction="TableOnLine"/>
+        <input>
+            <soap:body use="literal"/>
+        </input>
+    </operation>
+</binding>
+<service name="OutputService_Presta">
+    <port name="OutputPort_Presta" binding="tns:OutputBinding_Presta">
+        <soap:address location="http://localhost:12100/service/PrestaTable_iep_Presta_callee"/>
+    </port>
+</service>
+<service name="OutputService_TableOnLine">
+    <port name="OutputPort_TableOnLine" binding="tns:OutputBinding_TableOnLine">
+        <soap:address location="http://localhost:12100/service/PrestaTable_iep_TableOnLine_callee"/>
+    </port>
+</service>
+ end of http output binding and service -->
+
+<!-- file output binding and service -->
+<binding name="OutputBinding_Presta" type="defns:OutputPt_Presta">
+    <file:binding/>
+    <operation name="Presta">
+        <file:operation/>
+        <input>
+            <file:message fileName="Presta.txt"
+                    fileNameIsPattern="false"
+                    addEOL="false"
+                    multipleRecordsPerFile="true"
+                    use="literal"/>
+        </input>
+    </operation>
+</binding>
+<binding name="OutputBinding_TableOnLine" type="defns:OutputPt_TableOnLine">
+    <file:binding/>
+    <operation name="TableOnLine">
+        <file:operation/>
+        <input>
+            <file:message fileName="TableOnLine.txt"
+                    fileNameIsPattern="false"
+                    addEOL="false"
+                    multipleRecordsPerFile="true"
+                    use="literal"/>
+        </input>
+    </operation>
+</binding>
+<service name="OutputService_Presta">
+    <port name="OutputPort_Presta" binding="tns:OutputBinding_Presta">
+        <file:address fileDirectory="/home/robindon/Desktop"/>
+    </port>
+</service>
+<service name="OutputService_TableOnLine">
+    <port name="OutputPort_TableOnLine" binding="tns:OutputBinding_TableOnLine">
+        <file:address fileDirectory="/home/robindon/Desktop"/>
+    </port>
+</service>
+<!-- end of file output binding and service -->
+</definitions>
